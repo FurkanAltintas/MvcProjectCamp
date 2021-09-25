@@ -27,12 +27,12 @@ namespace PresentationLayer.Controllers
         {
             if (adminManager.GetLogin(p))
             {
-                var user = adminManager.GetByEmail(p.Email);
+                //var user = adminManager.GetByEmail(p.Email);
 
                 FormsAuthentication.SetAuthCookie(p.Email, false);
-                Session["Email"] = user.Email;
-                Session["UserName"] = user.UserName;
-                Session["Profile"] = user.Profile;
+                Session["Email"] = p.Email;
+                //Session["UserName"] = user.UserName;
+                //Session["Profile"] = user.Profile;
                 return RedirectToAction("Index", "Dashboard");
             }
             else

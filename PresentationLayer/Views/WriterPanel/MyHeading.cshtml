@@ -1,0 +1,66 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Heading>
+
+@{
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_LayoutWriter.cshtml";
+
+    int i = 0;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box p-0">
+            <!-- .left-right-aside-column-->
+            <div class="page-aside">
+                <div class="right-aside">
+                    <div class="clearfix"></div>
+                    <div class="scrollable">
+                        <div class="table-responsive">
+                            <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>NAME</th>
+                                        <th>WRITER</th>
+                                        <th>CATEGORY</th>
+                                        <th>STATUS</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        i++;
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>@item.Name<br />@(item.CreDate == null ? "": item.CreDate.Value.ToShortDateString())</td>
+                                            <td>
+                                                <a href="@Url.Action("Detail", "Writer", new {id = item.WriterId})"><img src="@item.Writer.Image" alt="@item.Writer.FullName" class="img-circle" /> @item.Writer.FullName</a>
+                                            </td>
+                                            <td><span class="label label-inverse">@item.Category.Name</span> </td>
+                                            <td>
+                                                @Html.Raw(item.IsActive == true ? "<span class='label label-success'>Active</span>" : "<span class='label label-danger'>Passive</span>")
+                                            </td>
+
+                                            <td>
+
+                                                <a href="@Url.Action("Detail","WriterPanel",new {id = item.Id})" data-toggle="tooltip" data-original-title="Contents"><i class="fa fa-book text-primary m-r-10"></i></a>
+
+                                                <a href="@Url.Action("Edit", "WriterPanel", new {id = item.Id})" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil text-inverse m-r-10"></i></a>
+
+                                                <a href="@Url.Action("Delete", "WriterPanel", new {id = item.Id})" data-toggle="tooltip" data-original-title="@(item.IsActive == true ? "Passive":"Active")"><i class="@(item.IsActive == true ? "fa fa-close":"fa fa-check")"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <a href="@Url.Action("Add","WriterPanel")" class="fcbtn btn btn-outline btn-success btn-1e">New Heading</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- .left-aside-column-->
+            </div>
+            <!-- /.left-right-aside-column-->
+        </div>
+    </div>
+</div>

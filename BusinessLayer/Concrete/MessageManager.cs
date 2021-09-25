@@ -50,27 +50,27 @@ namespace BusinessLayer.Concrete
 
         public IOrderedEnumerable<Message> GetListInbox(string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == p && x.IsSend == false && x.IsTrash == false && x.IsDraft == false).OrderByDescending(x => x.Id);
+            return _messageDal.List(x => x.ReceiverMail == p && x.IsTrash == false && x.IsDraft == false).OrderByDescending(x => x.Id);
         }
 
         public IOrderedEnumerable<Message> GetListSendbox(string p)
         {
-            return _messageDal.List(x => x.SenderMail == p && x.IsSend == true && x.IsTrash == false).OrderByDescending(x => x.Id);
+            return _messageDal.List(x => x.SenderMail == p && x.IsTrash == false).OrderByDescending(x => x.Id);
         }
 
         public IOrderedEnumerable<Message> GetListTrash(string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == p && x.IsSend == false && x.IsTrash == true).OrderByDescending(x => x.Id);
+            return _messageDal.List(x => x.ReceiverMail == p && x.IsTrash == true).OrderByDescending(x => x.Id);
         }
 
         public IOrderedEnumerable<Message> GetListDraft(string p)
         {
-            return _messageDal.List(x => x.SenderMail == p && x.IsSend == true && x.IsDraft == true).OrderByDescending(x => x.Id);
+            return _messageDal.List(x => x.SenderMail == p && x.IsDraft == true).OrderByDescending(x => x.Id);
         }
 
         public IOrderedEnumerable<Message> GetListStar(string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == p && x.IsSend == false && x.IsStar == true).OrderByDescending(x => x.Id);
+            return _messageDal.List(x => x.ReceiverMail == p && x.IsStar == true).OrderByDescending(x => x.Id);
         }
 
         public IOrderedEnumerable<Message> GetListInboxRead(string p)
@@ -85,17 +85,17 @@ namespace BusinessLayer.Concrete
 
         public IOrderedEnumerable<Message> GetListSendboxRead(string p)
         {
-            return _messageDal.List(x => x.SenderMail == p && x.IsRead == true && x.IsSend == true && x.IsTrash == false).OrderByDescending(x => x.Id);
+            return _messageDal.List(x => x.SenderMail == p && x.IsRead == true && x.IsTrash == false).OrderByDescending(x => x.Id);
         }
 
         public IOrderedEnumerable<Message> GetListSendboxUnRead(string p)
         {
-            return _messageDal.List(x => x.SenderMail == p && x.IsRead == false && x.IsSend == true).OrderByDescending(x => x.Id);
+            return _messageDal.List(x => x.SenderMail == p && x.IsRead == false).OrderByDescending(x => x.Id);
         }
 
         public IOrderedEnumerable<Message> GetListTrashRead(string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == p && x.IsSend == false && x.IsRead == true && x.IsTrash == true).OrderByDescending(x => x.Id);
+            return _messageDal.List(x => x.ReceiverMail == p && x.IsRead == true && x.IsTrash == true).OrderByDescending(x => x.Id);
         }
 
         public IOrderedEnumerable<Message> GetListTrashUnRead(string p)

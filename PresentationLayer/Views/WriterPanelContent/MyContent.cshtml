@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Content>
+
+@{
+    ViewBag.Title = "MyContent";
+    Layout = "~/Views/Shared/_LayoutWriter.cshtml";
+
+    int i = 2;
+    string right = "";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box">
+            <ul class="timeline">
+                @if (Model.Count() != 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        right = i % 2 == 0 ? "" : "timeline-inverted";
+
+                        <li class="@right">
+                            <div class="timeline-badge warning"><img class="img-responsive" alt="user" src="@item.Writer.Image"> </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">@item.Heading.Name</h4>
+                                    @if (i % 2 == 0)
+                                    {
+                                        <p><small class="text-muted"><i class="fa fa-clock-o"></i> @item.CreDate.Value.ToShortDateString()</small> </p>
+                                    }
+                                </div>
+                                <div class="timeline-body">
+                                    @if (i % 2 != 0)
+                                    {
+                                        <p><small class="text-muted"><i class="fa fa-clock-o"></i> @item.CreDate.Value.ToShortDateString()</small> </p>
+                                    }
+                                    <p>@item.Value</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        i++;
+                    }
+                }
+                else
+                {
+                    <p>İçerik bulunmamaktadır</p>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

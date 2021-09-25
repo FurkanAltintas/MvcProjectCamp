@@ -13,6 +13,8 @@ namespace BusinessLayer.Concrete
 {
     public class AdminManager : IAdminService
     {
+        SHA1 sha = new SHA1CryptoServiceProvider();
+
         readonly IAdminDal _adminDal;
 
         public AdminManager(IAdminDal adminDal)
@@ -67,7 +69,6 @@ namespace BusinessLayer.Concrete
             //var encrypedPassword = crypto.Compute(p.Password);
 
             //enginpolat.com/csharp-ile-hash-islemi/ anlatımı mevcuttur.
-            SHA1 sha = new SHA1CryptoServiceProvider();
             string pass = p.Password;
             string email = p.Email;
             string key = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(pass)));

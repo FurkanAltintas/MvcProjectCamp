@@ -2,11 +2,15 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutWriter.cshtml";
 }
 
-@using (Html.BeginForm("Edit", "Heading", FormMethod.Post))
+@using (Html.BeginForm("Edit", "WriterPanel", FormMethod.Post))
 {
+    <div class="form-group">
+        @Html.HiddenFor(x => x.WriterId, new { @class = "form-control" })
+    </div>
+
     <div class="form-group">
         @Html.Label("Category")
         @Html.DropDownListFor(x => x.CategoryId, (IEnumerable<SelectListItem>)ViewBag.Category, "Select Heading", new { @class = "form-control" })

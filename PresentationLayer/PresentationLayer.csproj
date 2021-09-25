@@ -2531,6 +2531,9 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SkillCard\AbilityController.cs" />
     <Compile Include="Controllers\Statistics\StatisticsController.cs" />
+    <Compile Include="Controllers\WriterDashboard\WriterPanelContentController.cs" />
+    <Compile Include="Controllers\WriterDashboard\WriterPanelController.cs" />
+    <Compile Include="Controllers\WriterDashboard\WriterPanelMessageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3932,6 +3935,17 @@
     <Content Include="Views\Ability\Appearance.cshtml" />
     <Content Include="Views\Ability\Add.cshtml" />
     <Content Include="Views\Ability\Edit.cshtml" />
+    <Content Include="Views\Shared\_LayoutWriter.cshtml" />
+    <Content Include="Views\WriterPanel\Index.cshtml" />
+    <Content Include="Views\WriterPanel\MyHeading.cshtml" />
+    <Content Include="Views\WriterPanel\Add.cshtml" />
+    <Content Include="Views\WriterPanel\Edit.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Inbox.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Compose.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Mails.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Detail.cshtml" />
+    <Content Include="Views\WriterPanelMessage\NewMessage.cshtml" />
+    <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
