@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.Admin
+
+@{
+    ViewBag.Title = "LockScreen";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<div class="white-box">
+    <form class="form-horizontal form-material" id="loginform" action="index.html">
+
+        <div class="form-group">
+            <div class="col-xs-12 text-center">
+                <div class="user-thumb text-center">
+                    <img alt="thumbnail" class="img-circle" width="100" src="~/eliteadmin/plugins/images/users/genu.jpg">
+                    <h3>Genelia</h3>
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="col-xs-12">
+                @Html.PasswordFor(x=>x.Password,new {@class="form-control",@placeholder="Password"})
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <div class="col-xs-12">
+                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Login</button>
+            </div>
+        </div>
+    </form>
+</div>

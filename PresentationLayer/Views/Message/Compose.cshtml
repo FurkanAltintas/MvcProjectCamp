@@ -1,0 +1,43 @@
+﻿@model EntityLayer.Concrete.Message
+
+@{
+    ViewBag.Title = "Compose";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <!-- Left sidebar -->
+    <div class="col-md-12">
+        <div class="white-box">
+            <div class="row">
+                @Html.Action("Compose", "Contact")
+                <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12 mail_listing">
+                    <h3 class="box-title">Compose New Message</h3>
+                    @using (Html.BeginForm("Compose", "Message", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.ReceiverMail, new { @class = "form-control", @placeholder = "To:" })
+                            @Html.ValidationMessageFor(x => x.ReceiverMail)
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Subject, new { @class = "form-control", @placeholder = "Subject:" })
+                            @Html.ValidationMessageFor(x => x.Subject)
+                        </div>
+                        <div class="form-group">
+                            @Html.TextAreaFor(x => x.Messages, 15, 0, new { @class = "textarea_editor form-control", @placeholder = "Enter text ...", @id = "mymce", @name = "area" })
+                            @Html.ValidationMessageFor(x => x.Messages)
+                        </div>
+                        <h4><i class="ti-link"></i> Attachment</h4>
+                        <div class="fallback">
+                            <input name="file" type="file" multiple />
+                        </div>
+                        <hr>
+                        <button type="submit" name="menu" id="send" value="send" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send</button>
+                        <button type="submit" name="menu" id="draft" value="draft" class="btn btn-danger"><i class="fa fa-file-text"></i> Draft</button>
+                        <button type="reset" name="menu" id="reset" value="reset" class="btn btn-default"><i class="fa fa-times"></i> Discard</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

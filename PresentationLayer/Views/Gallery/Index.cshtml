@@ -1,0 +1,35 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Image>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box">
+            <h3 class="box-title">Gallery Page</h3>
+            <div id="gallery">
+                <div id="gallery-header">
+                    <div id="gallery-header-center">
+                        <div id="gallery-header-center-left">
+                            @Html.Action("Index","GalleryCategory")
+                        </div>
+                    </div>
+                </div>
+                <div id="gallery-content">
+                    <div id="gallery-content-center">
+                        @foreach (var item in Model)
+                        {
+                            <a href="@item.Url" data-toggle="lightbox" data-gallery="multiimages" data-title="@item.Name">
+                                <img src="@item.Url" class="all @item.ImageCategory.Name.ToLower()" alt="@item.Name"/>
+                            </a>
+
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

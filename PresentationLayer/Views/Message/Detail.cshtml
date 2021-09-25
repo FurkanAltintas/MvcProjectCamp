@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.Message
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    HtmlString message = new HtmlString(Model.Messages);
+}
+
+<div class="row">
+    <!-- Left sidebar -->
+    <div class="col-md-12">
+        <div class="white-box">
+            <div class="row">
+                @Html.Action("Compose","Contact")
+                <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12 mail_listing">
+                    <div class="media m-b-30 p-t-20">
+                        <h4 class="font-bold m-t-0">@Model.Subject</h4>
+                        <hr>
+                        <a class="pull-left" href="#"> <img class="media-object thumb-sm img-circle" src="~/eliteadmin/plugins/images/users/pawandeep.jpg" alt=""> </a>
+                        <div class="media-body">
+                            <span class="media-meta pull-right">@Model.CreDate.Value.ToShortTimeString()</span>
+                            @if (Model.IsSend == true) //benim gönderdiğim
+                            {
+                                <h4 class="text-danger m-0">@Model.SenderMail</h4>
+                                <small class="text-muted">From: @Model.ReceiverMail</small>
+                            }
+                            else
+                            {
+                                <h4 class="text-danger m-0">@Model.SenderMail</h4>
+                                <small class="text-muted">From: @Model.ReceiverMail</small>
+                            }
+                        </div>
+                    </div>
+                    <p>@message</p>
+                    @*<hr>
+                    <h4> <i class="fa fa-paperclip m-r-10 m-b-10"></i> Attachments <span>(3)</span> </h4>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-4"> <a href="#"> <img class="img-thumbnail img-responsive" alt="attachment" src="~/eliteadmin/plugins/images/img1.jpg"> </a> </div>
+                        <div class="col-sm-2 col-xs-4"> <a href="#"> <img class="img-thumbnail img-responsive" alt="attachment" src="~/eliteadmin/plugins/images/img2.jpg"> </a> </div>
+                        <div class="col-sm-2 col-xs-4"> <a href="#"> <img class="img-thumbnail img-responsive" alt="attachment" src="~/eliteadmin/plugins/images/img3.jpg"> </a> </div>
+                    </div>
+                    <hr>*@
+                    <div class="b-all p-20">
+                        <p class="p-b-20">click here to <a href="#">Reply</a> or <a href="#">Forward</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

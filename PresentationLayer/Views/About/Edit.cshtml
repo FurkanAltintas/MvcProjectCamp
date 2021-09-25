@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.About
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "About", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Details 1")
+        @Html.TextBoxFor(x => x.Details, new { @class = "form-control", @placeholder = "Details 1" })
+    </div>
+    <div class="form-group">
+        @Html.Label(" Details 2")
+        @Html.TextBoxFor(x => x.Details2, new { @class = "form-control", @placeholder = "Details 2" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Image 1")
+        @Html.TextBoxFor(x => x.Image, new { @class = "form-control", @placeholder = "Image 1" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Image 2")
+        @Html.TextBoxFor(x => x.Image2, new { @class = "form-control", @placeholder = "Image 2" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">Update About</button>
+    </div>
+}

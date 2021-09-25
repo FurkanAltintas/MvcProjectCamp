@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Ability>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int i = 0;
+}
+
+@if (Model.Count() != 0)
+{
+    <a href="Ability/Appearance/@ViewBag.User" class="btn btn-pinterest">View</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>NAME</th>
+                <th>DEGREE</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@item.Name</td>
+                    <td>@item.Degree</td>
+                    <td class="text-nowrap">
+                        <a href="@Url.Action("Edit", "Ability", new { id = @item.Id })" data-toggle="tooltip" data-original-title="Edit">
+                            <i class="fa fa-pencil text-inverse m-r-10"></i>
+                        </a>
+                        <a href="@Url.Action("Delete", "Ability", new { id = @item.Id })" data-toggle="tooltip" data-original-title="Delete">
+                            <i class="fa fa-close text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-center">
+        <div class="alert alert-danger">
+            You do not have a skill card
+        </div>
+    </div>
+}
+
+<button class="fcbtn btn btn-outline btn-danger btn-1e" data-toggle="modal" data-target="#abilityAdd">New Ability</button>
+
+@Html.Action("Add", "Ability")

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Writer>
+
+@{
+    ViewBag.Title = "Writers";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int i = 0;
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-4">
+            <div class="white-box">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 text-center"><a href="@Url.Action("Detail","Writer",new {id =@item.Id})"><img src="@item.Image" alt="user" class="img-circle img-responsive"></a></div>
+                    <div class="col-md-8 col-sm-8">
+                        <h3 class="box-title m-b-0">@item.Name @item.SurName</h3>
+                        <small>@item.Designation</small>
+                        <p>
+                            <address>
+                                @item.Address<br /><br />
+                                <abbr title="Phone">P:</abbr> @item.Phone<br />
+                                <abbr title="Email">E:</abbr> @item.Mail
+                            </address>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- /.row -->
+
+<a href="@Url.Action("Add","Writer")" class="fcbtn btn btn-outline btn-success btn-1e">New Writer</a>
+

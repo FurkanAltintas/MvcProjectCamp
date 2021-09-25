@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EntityLayer.Concrete.About>
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int i = 0;
+}
+
+@if (Model.Count() != 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>DETAIL 1</th>
+                <th>DETAIL 2</th>
+                <th>IMAGE 1</th>
+                <th>IMAGE 2</th>
+                <th>STATUS</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@item.Details</td>
+                    <td>@item.Details2</td>
+                    <td>@item.Image</td>
+                    <td>@item.Image2</td>
+                    <td>
+
+                        @Html.Raw(item.IsActive == true ? "<span class='label label-success'>Active</span>" : "<span class='label label-danger'>Passive</span>")
+                    </td>
+                    <td class="text-nowrap">
+                        <a href="@Url.Action("Edit","About",new {id = @item.Id})" data-toggle="tooltip" data-original-title="Edit">
+                            <i class="fa fa-pencil text-inverse m-r-10"></i>
+                        </a>
+
+                        <a href="@Url.Action("Delete", "About", new {id = item.Id})" data-toggle="tooltip" data-original-title="@(item.IsActive == true ? "Passive":"Active")"><i class="@(item.IsActive == true ? "fa fa-close":"fa fa-check")"></i></a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        Liste boş
+    </div>
+}
+
+<button class="fcbtn btn btn-outline btn-danger btn-1e" data-toggle="modal" data-target="#aboutAdd">New About</button>
+
+@Html.Action("Add", "About")
