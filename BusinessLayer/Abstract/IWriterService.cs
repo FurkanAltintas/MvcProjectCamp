@@ -13,7 +13,8 @@ namespace BusinessLayer.Abstract
         Writer GetById(int id);
         Writer GetByName(string username);
         Writer GetByEmail(string mail);
-        IEnumerable<int> GetByEmailID(string mail);
+        //IEnumerable<int> GetByEmailID(string mail);
+        int GetByEmailID(string mail);
         bool GetLogin(Writer p);
         int WriterCountA();
         void Add(Writer p);

@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace PresentationLayer.Controllers.WriterDashboard
 {
-    public class WriterPanelMessageController : BaseController
+    public class WriterPanelMessageController : WriterLoginController
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();

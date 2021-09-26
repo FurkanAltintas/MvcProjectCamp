@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace PresentationLayer.Controllers.WriterDashboard
 {
-    public class WriterPanelContentController : BaseController
+    public class WriterPanelContentController : WriterLoginController
     {
         ContentManager contentManager = new ContentManager(new EfContentDal());
         // GET: WriterPanelContent

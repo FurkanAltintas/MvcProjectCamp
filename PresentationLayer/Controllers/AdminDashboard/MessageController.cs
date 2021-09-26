@@ -12,7 +12,7 @@ using PresentationLayer.Security;
 
 namespace PresentationLayer.Controllers.AdminDashboard
 {
-    public class MessageController : BaseController
+    public class MessageController : AdminLoginController
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();

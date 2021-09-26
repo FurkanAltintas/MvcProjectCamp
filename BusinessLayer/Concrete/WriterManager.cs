@@ -73,9 +73,14 @@ namespace BusinessLayer.Concrete
             return _writerDal.Get(x => x.Mail == mail);
         }
 
-        public IEnumerable<int> GetByEmailID(string mail)
+        //public IEnumerable<int> GetByEmailID(string mail)
+        //{
+        //    return _writerDal.List(x => x.Mail == mail).Select(y => y.Id);
+        //}
+
+        public int GetByEmailID(string mail)
         {
-            return _writerDal.List(x => x.Mail == mail).Select(y => y.Id);
+            return _writerDal.List(x => x.Mail == mail).Select(y => y.Id).FirstOrDefault();
         }
     }
 }

@@ -2538,7 +2538,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\BaseController.cs" />
+    <Compile Include="Security\WriterLoginController.cs" />
+    <Compile Include="Security\AdminLoginController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

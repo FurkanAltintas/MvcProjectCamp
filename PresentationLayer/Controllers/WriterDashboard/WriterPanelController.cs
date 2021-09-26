@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace PresentationLayer.Controllers.WriterDashboard
 {
-    public class WriterPanelController : BaseController
+    public class WriterPanelController : WriterLoginController
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
@@ -58,6 +58,7 @@ namespace PresentationLayer.Controllers.WriterDashboard
         {
             Category();
             var key = headingManager.GetById(id);
+            key.IsActive = true;
             return View(key);
         }
 

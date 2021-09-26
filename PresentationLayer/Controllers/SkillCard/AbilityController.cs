@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace PresentationLayer.Controllers.SkillCard
 {
-    public class AbilityController : BaseController
+    public class AbilityController : AdminLoginController
     {
         AbilityManager abilityManager = new AbilityManager(new EfAbilityDal());
         AdminManager adminManager = new AdminManager(new EfAdminDal());
