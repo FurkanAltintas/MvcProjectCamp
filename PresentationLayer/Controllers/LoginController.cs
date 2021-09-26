@@ -83,12 +83,9 @@ namespace PresentationLayer.Controllers
         public bool ValidateCaptcha(string response)
         {
             string secret = ConfigurationManager.AppSettings["GoogleSecretkey"];
-
             var client = new WebClient();
             var reply = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
-
             var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(reply);
-
             return Convert.ToBoolean(captchaResponse.Success);
         }
 

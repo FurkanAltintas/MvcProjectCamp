@@ -55,7 +55,18 @@ namespace BusinessLayer.Concrete
 
         public bool GetLogin(Writer p)
         {
-            var user = _writerDal.Get(x => x.Mail == p.Mail && x.Password == p.Password);
+            //var crypto = new SimpleCrypto.PBKDF2();
+            //var encrypedPassword = crypto.Compute(p.Password);
+
+            //enginpolat.com/csharp-ile-hash-islemi/ anlatımı mevcuttur.
+            string pass = p.Password;
+            string email = p.Mail;
+            string key = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(pass)));
+            string mail = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(email)));
+            p.Password = key;
+            p.Mail = mail;
+
+            var user = _writerDal.Get(x => x.Mail == mail && x.Password == key);
 
             if (user != null)
                 return true;

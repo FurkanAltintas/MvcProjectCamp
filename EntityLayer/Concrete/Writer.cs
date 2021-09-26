@@ -28,9 +28,7 @@ namespace EntityLayer.Concrete
         public string Address { get; set; }
         [StringLength(500)]
         public string About { get; set; }
-        [StringLength(50)]
         public string Mail { get; set; }
-        [StringLength(20)]
         public string Password { get; set; }
         public ICollection<Heading> Heading { get; set; }
         public ICollection<Content> Content { get; set; }
