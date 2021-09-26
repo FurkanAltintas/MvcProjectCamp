@@ -126,3 +126,10 @@ C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\obj\Debug\Prese
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\obj\Debug\PresentationLayer.csproj.CopyComplete
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\obj\Debug\PresentationLayer.dll
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\obj\Debug\PresentationLayer.pdb
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\Newtonsoft.Json.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\Newtonsoft.Json.xml
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\Antlr3.Runtime.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\System.Web.Optimization.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\WebGrease.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\Antlr3.Runtime.pdb
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\System.Web.Optimization.xml

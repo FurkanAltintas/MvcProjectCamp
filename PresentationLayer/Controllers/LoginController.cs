@@ -1,9 +1,13 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Newtonsoft.Json;
+using PresentationLayer.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Helpers;
@@ -53,17 +57,39 @@ namespace PresentationLayer.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer p)
         {
-            if (writerManager.GetLogin(p))
+            bool isCaptchaValid = ValidateCaptcha(Request["g-recaptcha-response"]);
+
+            if (!isCaptchaValid)
             {
-                FormsAuthentication.SetAuthCookie(p.Mail, false);
-                Session["Email"] = p.Mail;
-                return RedirectToAction("Index", "WriterPanel");
+                ViewBag.Error = "You need to verify Google reCaptcha";
+                return View(p);
             }
             else
             {
-                ViewBag.Error = "Email or password is wrong";
-                return View(p);
+                if (writerManager.GetLogin(p))
+                {
+                    FormsAuthentication.SetAuthCookie(p.Mail, false);
+                    Session["Email"] = p.Mail;
+                    return RedirectToAction("Index", "WriterPanel");
+                }
+                else
+                {
+                    ViewBag.Error = "Email or password is wrong";
+                    return View(p);
+                }
             }
+        }
+
+        public bool ValidateCaptcha(string response)
+        {
+            string secret = ConfigurationManager.AppSettings["GoogleSecretkey"];
+
+            var client = new WebClient();
+            var reply = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
+
+            var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(reply);
+
+            return Convert.ToBoolean(captchaResponse.Success);
         }
 
         public ActionResult LockScreen()
