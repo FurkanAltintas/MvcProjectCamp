@@ -270,7 +270,7 @@
                     <li>
                         <a href="@Url.Action("Index","Dashboard")" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> </span></a>
                     </li>
-                        <li> <a href="@Url.Action("Index","Category")" class="waves-effect"><i data-icon="{" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Categories</span></a> </li>
+                    <li> <a href="@Url.Action("Index","Category")" class="waves-effect"><i data-icon="{" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Categories</span></a> </li>
                     <li> <a href="@Url.Action("Index","Heading")" class="waves-effect"><i data-icon="{" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Headings</span></a> </li>
                     <li> <a href="@Url.Action("Index","Writer")" class="waves-effect"><i data-icon="<" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Writers</span></a> </li>
                     <li> <a href="widgets.html" class="waves-effect"><i data-icon="Q" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Graphics</span></a> </li>
@@ -323,9 +323,9 @@
     <!--Wave Effects -->
     <script src="@Url.Content("~/eliteadmin/eliteadmin-horizontal-navbar/js/waves.js")"></script>
     <!--Counter js -->
-    <script type="text/javascript" src="~/eliteadmin/plugins/bower_components/gallery/js/animated-masonry-gallery.js"></script>
-    <script type="text/javascript" src="~/eliteadmin/plugins/bower_components/gallery/js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="~/eliteadmin/plugins/bower_components/fancybox/ekko-lightbox.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/eliteadmin/plugins/bower_components/gallery/js/animated-masonry-gallery.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/eliteadmin/plugins/bower_components/gallery/js/jquery.isotope.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/eliteadmin/plugins/bower_components/fancybox/ekko-lightbox.min.js")"></script>
     <script type="text/javascript">
         $(document).ready(function ($) {
             // delegate calls to data-toggle="lightbox"
@@ -346,7 +346,6 @@
                         }
                     });
                 });
-
             //Programatically call
             $('#open-image').click(function (e) {
                 e.preventDefault();
@@ -356,36 +355,26 @@
                 e.preventDefault();
                 $(this).ekkoLightbox();
             });
-
             // navigateTo
             $(document).delegate('*[data-gallery="navigateTo"]',
                 'click',
                 function (event) {
                     event.preventDefault();
-
                     var lb;
                     return $(this).ekkoLightbox({
                         onShown: function () {
-
                             lb = this;
-
                             $(lb.modal_content).on('click',
                                 '.modal-footer a',
                                 function (e) {
-
                                     e.preventDefault();
                                     lb.navigateTo(2);
-
                                 });
-
                         }
                     });
                 });
-
-
         });
     </script>
-
     <script src="@Url.Content("~/eliteadmin/plugins/bower_components/waypoints/lib/jquery.waypoints.js")"></script>
     <script src="@Url.Content("~/eliteadmin/plugins/bower_components/counterup/jquery.counterup.min.js")"></script>
     <!--Morris JavaScript -->
@@ -411,25 +400,7 @@
             });
         </script>*@
 
-    @if (Session.Contents["Id"] != null)
-    {
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $.toast({
-                    heading: 'Welcome to @Session.Contents["FullName"]',
-                    text: 'Use the predefined ones, or specify a custom position object.',
-                    position: 'top-right',
-                    loaderBg: '#ff6849',
-                    icon: 'success',
-                    hideAfter: 3500,
-
-                    stack: 6
-                });
-            });
-        </script>
-    }
-
-    <script src="~/eliteadmin/plugins/bower_components/tinymce/tinymce.min.js"></script>
+    <script src="@Url.Content("~/eliteadmin/plugins/bower_components/tinymce/tinymce.min.js")"></script>
     <script>
         $(document).ready(function () {
             if ($("#mymce").length > 0) {

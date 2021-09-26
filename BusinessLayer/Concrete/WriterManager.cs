@@ -50,7 +50,7 @@ namespace BusinessLayer.Concrete
         {
             //yazar adında 'a' harfi geçen yazar sayısı
             //var writer = c.Writer.Where(x => x.Name.Contains("a")).Count();
-            return _writerDal.List(x => x.Name.Contains("a")).Count();
+            return _writerDal.List(x => x.Name.ToLower().Contains("a")).Count();
         }
 
         public bool GetLogin(Writer p)
@@ -61,6 +61,21 @@ namespace BusinessLayer.Concrete
                 return true;
             else
                 return false;
+        }
+
+        public Writer GetByName(string username)
+        {
+            return _writerDal.Get(x => x.FullName == username);
+        }
+
+        public Writer GetByEmail(string mail)
+        {
+            return _writerDal.Get(x => x.Mail == mail);
+        }
+
+        public IEnumerable<int> GetByEmailID(string mail)
+        {
+            return _writerDal.List(x => x.Mail == mail).Select(y => y.Id);
         }
     }
 }

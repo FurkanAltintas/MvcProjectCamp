@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using PresentationLayer.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace PresentationLayer.Controllers.WriterDashboard
 {
-    public class WriterPanelContentController : Controller
+    public class WriterPanelContentController : BaseController
     {
         ContentManager contentManager = new ContentManager(new EfContentDal());
         // GET: WriterPanelContent
@@ -19,8 +20,7 @@ namespace PresentationLayer.Controllers.WriterDashboard
 
         public ActionResult MyContent()
         {
-            int id = 4;
-            var key = contentManager.GetWriter(id);
+            var key = contentManager.GetWriter(Id);
             return View(key);
         }
     }

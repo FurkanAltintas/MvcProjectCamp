@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using PresentationLayer.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Web.Mvc;
 
 namespace PresentationLayer.Controllers.WriterDashboard
 {
-    public class WriterPanelController : Controller
+    public class WriterPanelController : BaseController
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
@@ -21,8 +22,7 @@ namespace PresentationLayer.Controllers.WriterDashboard
 
         public ActionResult MyHeading()
         {
-            int id = 4;
-            var list = headingManager.GetByList(id);
+            var list = headingManager.GetByList(Id);
             return View(list);
         }
 
@@ -36,7 +36,7 @@ namespace PresentationLayer.Controllers.WriterDashboard
         [HttpPost]
         public ActionResult Add(Heading p)
         {
-            p.WriterId = 4;
+            p.WriterId = Id;
             p.IsActive = true;
             p.CreDate = DateTime.Now;
             headingManager.Add(p);

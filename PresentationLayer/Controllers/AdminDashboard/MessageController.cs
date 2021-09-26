@@ -8,10 +8,11 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using PresentationLayer.Security;
 
 namespace PresentationLayer.Controllers.AdminDashboard
 {
-    public class MessageController : Controller
+    public class MessageController : BaseController
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
@@ -90,8 +91,6 @@ namespace PresentationLayer.Controllers.AdminDashboard
         [HttpPost, ValidateInput(false)]
         public ActionResult Compose(Message p, string menu)
         {
-            string mail = Session["Email"].ToString();
-
             ValidationResult validationResult = messageValidator.Validate(p);
 
             if (Session["DetailId"] != null)
@@ -120,7 +119,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
                         return RedirectToAction("Compose");
                 }
 
-                p.SenderMail = mail;
+                p.SenderMail = Mail;
                 p.IsActive = true;
                 p.CreDate = DateTime.Now;
                 messageManager.Add(p);
@@ -155,8 +154,6 @@ namespace PresentationLayer.Controllers.AdminDashboard
         [Route("{Message}/{Mail}/{mails}")] //filter ile inbox,sent mail, draft,starred ve trash bilgilerine erişebiliyoruz. Böyle 5 defa aynı kodu yazmamış olduk
         public ActionResult Mails(string mails, string filter)
         {
-            string mail = Session["Email"].ToString();
-
             if (filter == null)
             {
                 filter = "All";
@@ -168,17 +165,17 @@ namespace PresentationLayer.Controllers.AdminDashboard
                     ViewBag.Title = "Inbox";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListInbox(mail);
+                        var all = messageManager.GetListInbox(Mail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListInboxRead(mail);
+                        var read = messageManager.GetListInboxRead(Mail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListInboxUnRead(mail);
+                        var unread = messageManager.GetListInboxUnRead(Mail);
                         return View(unread);
 
                     }
@@ -188,17 +185,17 @@ namespace PresentationLayer.Controllers.AdminDashboard
                     ViewBag.Title = "Sendbox";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListSendbox(mail);
+                        var all = messageManager.GetListSendbox(Mail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListSendboxRead(mail);
+                        var read = messageManager.GetListSendboxRead(Mail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListSendboxUnRead(mail);
+                        var unread = messageManager.GetListSendboxUnRead(Mail);
                         return View(unread);
 
                     }
@@ -208,17 +205,17 @@ namespace PresentationLayer.Controllers.AdminDashboard
                     ViewBag.Title = "Draft";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListDraft(mail);
+                        var all = messageManager.GetListDraft(Mail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListDraftRead(mail);
+                        var read = messageManager.GetListDraftRead(Mail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListDraftUnRead(mail);
+                        var unread = messageManager.GetListDraftUnRead(Mail);
                         return View(unread);
 
                     }
@@ -228,17 +225,17 @@ namespace PresentationLayer.Controllers.AdminDashboard
                     ViewBag.Title = "Trash";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListTrash(mail);
+                        var all = messageManager.GetListTrash(Mail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListTrashRead(mail);
+                        var read = messageManager.GetListTrashRead(Mail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListTrashUnRead(mail);
+                        var unread = messageManager.GetListTrashUnRead(Mail);
                         return View(unread);
                     }
                     return RedirectToAction("Index", "Contact");
@@ -247,17 +244,17 @@ namespace PresentationLayer.Controllers.AdminDashboard
                     ViewBag.Title = "Starred";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListStar(mail);
+                        var all = messageManager.GetListStar(Mail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListStarRead(mail);
+                        var read = messageManager.GetListStarRead(Mail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListStarUnRead(mail);
+                        var unread = messageManager.GetListStarUnRead(Mail);
                         return View(unread);
                     }
                     return RedirectToAction("Index", "Contact");

@@ -11,6 +11,8 @@ namespace PresentationLayer.Security
     public class BaseController : Controller
     {
         AdminManager adminManager = new AdminManager(new EfAdminDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
+
         public int Id { get; set; }
         public string Mail { get; set; }
         public string FullName { get; set; }
@@ -26,9 +28,18 @@ namespace PresentationLayer.Security
                 Mail = Session["Email"].ToString();
 
                 var user = adminManager.GetByEmail(Mail);
-                FullName = user.UserName;
-                Id = user.Id;
 
+                if (user == null)
+                {
+                    var writer = writerManager.GetByEmail(Mail);
+                    FullName = writer.FullName;
+                    Id = writer.Id;
+                }
+                else
+                {
+                    FullName = user.UserName;
+                    Id = user.Id;
+                }
             }
             base.OnActionExecuting(filterContext);
         }
