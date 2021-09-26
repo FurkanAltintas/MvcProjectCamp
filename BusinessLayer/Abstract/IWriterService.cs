@@ -11,6 +11,7 @@ namespace BusinessLayer.Abstract
     {
         List<Writer> GetList();
         Writer GetById(int id);
+        bool GetLogin(Writer p);
         int WriterCountA();
         void Add(Writer p);
         void Update(Writer p);

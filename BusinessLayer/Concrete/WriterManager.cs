@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
@@ -12,6 +13,8 @@ namespace BusinessLayer.Concrete
 {
     public class WriterManager : IWriterService
     {
+        SHA1 sha = new SHA1CryptoServiceProvider();
+
         readonly IWriterDal _writerDal;
 
         public WriterManager(IWriterDal writerDal)
@@ -48,6 +51,16 @@ namespace BusinessLayer.Concrete
             //yazar adında 'a' harfi geçen yazar sayısı
             //var writer = c.Writer.Where(x => x.Name.Contains("a")).Count();
             return _writerDal.List(x => x.Name.Contains("a")).Count();
+        }
+
+        public bool GetLogin(Writer p)
+        {
+            var user = _writerDal.Get(x => x.Mail == p.Mail && x.Password == p.Password);
+
+            if (user != null)
+                return true;
+            else
+                return false;
         }
     }
 }

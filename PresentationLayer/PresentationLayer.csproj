@@ -3946,6 +3946,7 @@
     <Content Include="Views\WriterPanelMessage\Detail.cshtml" />
     <Content Include="Views\WriterPanelMessage\NewMessage.cshtml" />
     <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
+    <Content Include="Views\Login\WriterLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

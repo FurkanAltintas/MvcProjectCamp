@@ -1,17 +1,17 @@
-﻿@model EntityLayer.Concrete.Admin
+﻿@model EntityLayer.Concrete.Writer
 
 @{
-    ViewBag.Title = "Admin Login";
+    ViewBag.Title = "Writer Login";
     Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
 <div class="white-box">
-    @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "form-horizontal form-material", id = "loginform" }))
+    @using (Html.BeginForm("WriterLogin", "Login", FormMethod.Post, new { @class = "form-horizontal form-material", id = "loginform" }))
     {
         <h3 class="box-title m-b-20">Sign In</h3>
         <div class="form-group ">
             <div class="col-xs-12">
-                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email" })
+                @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @placeholder = "Email" })
             </div>
         </div>
         <div class="form-group">

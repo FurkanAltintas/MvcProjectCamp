@@ -15,6 +15,7 @@ namespace PresentationLayer.Controllers
     public class LoginController : Controller
     {
         AdminManager adminManager = new AdminManager(new EfAdminDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -37,7 +38,29 @@ namespace PresentationLayer.Controllers
             }
             else
             {
-                ViewBag.Error = "Username or password is wrong";
+                ViewBag.Error = "Email or password is wrong";
+                return View(p);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult WriterLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WriterLogin(Writer p)
+        {
+            if (writerManager.GetLogin(p))
+            {
+                FormsAuthentication.SetAuthCookie(p.Mail, false);
+                Session["Email"] = p.Mail;
+                return RedirectToAction("Index", "WriterPanel");
+            }
+            else
+            {
+                ViewBag.Error = "Email or password is wrong";
                 return View(p);
             }
         }
