@@ -1055,6 +1055,9 @@ pre {
     left: 0px;
     padding: 20px 30px;
     position: absolute;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     right: 0;
     background: #ffffff;
 }

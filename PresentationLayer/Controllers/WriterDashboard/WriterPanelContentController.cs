@@ -32,13 +32,19 @@ namespace PresentationLayer.Controllers.WriterDashboard
         }
 
         [HttpPost]
-        public ActionResult Add(Content p)
+        public ActionResult Add(int id, Content p)
         {
+            p.HeadingId = id;
             p.WriterId = Id;
             p.CreDate = DateTime.Now;
             p.IsActive = true;
             contentManager.Add(p);
             return RedirectToAction("MyContent");
+        }
+
+        public ActionResult ToDoList()
+        {
+            return View();
         }
     }
 }

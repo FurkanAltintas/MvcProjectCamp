@@ -3,3 +3,15 @@
     ViewBag.Title = "Add";
     Layout = "~/Views/Shared/_LayoutWriter.cshtml";
 }
+
+@using (Html.BeginForm("Add", "WriterPanelContent", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Content")
+        @Html.TextAreaFor(x => x.Value, 20,10, new { @class = "form-control", @placeholder = "Content" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">New Content</button>
+    </div>
+}
