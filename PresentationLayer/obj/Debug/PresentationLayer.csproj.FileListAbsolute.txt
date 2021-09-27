@@ -133,3 +133,7 @@ C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\System.Web.
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\WebGrease.dll
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\Antlr3.Runtime.pdb
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\System.Web.Optimization.xml
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\PagedList.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\PagedList.Mvc.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\PagedList.xml
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\PagedList.Mvc.xml

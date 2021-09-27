@@ -1,4 +1,6 @@
-﻿@model IEnumerable<EntityLayer.Concrete.Heading>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<EntityLayer.Concrete.Heading>
 
 @{
     ViewBag.Title = "All";
@@ -52,6 +54,9 @@
                                     }
                                 </tbody>
                             </table>
+
+                            @Html.PagedListPager((IPagedList)Model, page => Url.Action("All", new { page }))
+
                             <a href="@Url.Action("Add","WriterPanel")" class="fcbtn btn btn-outline btn-success btn-1e">New Heading</a>
                         </div>
                     </div>

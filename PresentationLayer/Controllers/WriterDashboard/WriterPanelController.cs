@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using PagedList;
 using PresentationLayer.Security;
 using System;
 using System.Collections.Generic;
@@ -69,9 +70,11 @@ namespace PresentationLayer.Controllers.WriterDashboard
             return RedirectToAction("MyHeading");
         }
 
-        public ActionResult All()
+        public ActionResult All(int? page)
         {
-            var list = headingManager.GetList();
+            var number = page ?? 1;
+
+            var list = headingManager.GetList().ToPagedList(number, 5);
             return View(list);
         }
 
