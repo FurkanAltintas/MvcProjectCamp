@@ -3973,7 +3973,6 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\WriterPanel\All.cshtml" />
     <Content Include="Views\WriterPanelContent\Add.cshtml" />
-    <Content Include="Views\WriterPanelContent\ToDoList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

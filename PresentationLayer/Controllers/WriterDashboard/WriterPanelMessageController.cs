@@ -25,13 +25,11 @@ namespace PresentationLayer.Controllers.WriterDashboard
         [Route("{WriterPanelMessage}/{Mail}/{mails}")] //filter ile inbox,sent mail, draft,starred ve trash bilgilerine erişebiliyoruz. Böyle 5 defa aynı kodu yazmamış olduk
         public ActionResult Mails(string mails, string filter)
         {
-            if (filter == null)
+            ViewBag.FullName = FullName;
+
+            if (filter == null || mails == null)
             {
                 filter = "All";
-            }
-
-            if (mails == null)
-            {
                 ViewBag.Title = "Inbox";
                 var all = messageManager.GetListInbox(Mail);
                 return View(all);
@@ -198,6 +196,8 @@ namespace PresentationLayer.Controllers.WriterDashboard
         //[Route("{Message}/{Mail}/{mails}/{url}/{id}")]
         public ActionResult Detail(string url, int id)
         {
+            ViewBag.FullName = FullName;
+
             var key = messageManager.GetById(id);
 
             if (key.IsDraft == true)

@@ -41,10 +41,5 @@ namespace PresentationLayer.Controllers.WriterDashboard
             contentManager.Add(p);
             return RedirectToAction("MyContent");
         }
-
-        public ActionResult ToDoList()
-        {
-            return View();
-        }
     }
 }

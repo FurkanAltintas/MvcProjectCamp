@@ -96,7 +96,7 @@
                                                     }
                                                 </a>
                                             </td>
-                                            <td class="hidden-xs">@item.SenderMail</td>
+                                            <td class="hidden-xs">@*@item.SenderMail*@ @ViewBag.FullName</td>
                                             <td class="max-texts">
                                                 <a href="/Dashboard/WriterPanelMessage/Detail/@item.Id">
                                                     @*@Url.Action("Detail","Message",new {id=item.Id})*@

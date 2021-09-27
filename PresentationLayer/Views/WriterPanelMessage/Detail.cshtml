@@ -20,16 +20,8 @@
                         <a class="pull-left" href="#"> <img class="media-object thumb-sm img-circle" src="~/eliteadmin/plugins/images/users/pawandeep.jpg" alt=""> </a>
                         <div class="media-body">
                             <span class="media-meta pull-right">@Model.CreDate.Value.ToShortTimeString()</span>
-                            @if (Model.IsSend == true) //benim gönderdiğim
-                            {
-                                <h4 class="text-danger m-0">@Model.SenderMail</h4>
-                                <small class="text-muted">From: @Model.ReceiverMail</small>
-                            }
-                            else
-                            {
-                                <h4 class="text-danger m-0">@Model.SenderMail</h4>
-                                <small class="text-muted">From: @Model.ReceiverMail</small>
-                            }
+                            <h4 class="text-danger m-0">@*@Model.SenderMail*@ @ViewBag.FullName</h4>
+                            <small class="text-muted">From: @Model.ReceiverMail</small>
                         </div>
                     </div>
                     <p>@message</p>

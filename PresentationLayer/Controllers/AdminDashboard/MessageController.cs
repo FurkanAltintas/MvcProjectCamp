@@ -63,6 +63,8 @@ namespace PresentationLayer.Controllers.AdminDashboard
         //[Route("{Message}/{Mail}/{mails}/{url}/{id}")]
         public ActionResult Detail(string url, int id)
         {
+            ViewBag.FullName = FullName;
+
             var key = messageManager.GetById(id);
 
             if (key.IsDraft == true)
@@ -154,6 +156,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
         [Route("{Message}/{Mail}/{mails}")] //filter ile inbox,sent mail, draft,starred ve trash bilgilerine erişebiliyoruz. Böyle 5 defa aynı kodu yazmamış olduk
         public ActionResult Mails(string mails, string filter)
         {
+            ViewBag.FullName = FullName;
             if (filter == null)
             {
                 filter = "All";
