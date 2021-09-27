@@ -22,7 +22,7 @@ namespace PresentationLayer.Controllers.WriterDashboard
 
         public ActionResult MyHeading()
         {
-            var list = headingManager.GetByList(Id);
+            var list = headingManager.GetByWriterList(Id);
             return View(list);
         }
 
@@ -68,6 +68,13 @@ namespace PresentationLayer.Controllers.WriterDashboard
             headingManager.Update(p);
             return RedirectToAction("MyHeading");
         }
+
+        public ActionResult All()
+        {
+            var list = headingManager.GetList();
+            return View(list);
+        }
+
 
         public void Category()
         {

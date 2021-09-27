@@ -40,6 +40,11 @@ namespace BusinessLayer.Concrete
 
         public List<Heading> GetByList(int id)
         {
+            return _headingDal.List(x => x.Id == id && x.IsActive == true);
+        }
+
+        public List<Heading> GetByWriterList(int id)
+        {
             return _headingDal.List(x => x.WriterId == id && x.IsActive == true);
         }
 

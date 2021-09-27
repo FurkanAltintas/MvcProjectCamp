@@ -3964,6 +3964,8 @@
     <Content Include="Views\Login\WriterLogin.cshtml" />
     <Content Include="Views\Default\Headings.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\WriterPanel\All.cshtml" />
+    <Content Include="Views\WriterPanelContent\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
