@@ -2797,7 +2797,7 @@
     <Compile Include="Controllers\AdminDashboard\HeadingController.cs" />
     <Compile Include="Controllers\AdminDashboard\MessageController.cs" />
     <Compile Include="Controllers\AdminDashboard\WriterController.cs" />
-    <Compile Include="Controllers\AdminDashboard\ErrorController.cs" />
+    <Compile Include="Controllers\Error\ErrorController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ShowCase\DefaultController.cs" />
     <Compile Include="Controllers\SkillCard\AbilityController.cs" />

@@ -16,10 +16,20 @@ namespace PresentationLayer.Controllers.AdminDashboard
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         WriterManager writerManager = new WriterManager(new EfWriterDal());
         // GET: Heading
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            var list = headingManager.GetList();
-            return View(list);
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.ToLower();
+                var list = headingManager.GetSearch(search);
+                return View(list);
+            }
+            else
+            {
+                var list = headingManager.GetOrderList();
+                return View(list);
+            }
+
         }
 
         [HttpGet]

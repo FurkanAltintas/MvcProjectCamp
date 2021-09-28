@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace PresentationLayer.Controllers.AdminDashboard
+namespace PresentationLayer.Controllers.Error
 {
     public class ErrorController : Controller
     {

@@ -53,6 +53,16 @@ namespace BusinessLayer.Concrete
             return _headingDal.List();
         }
 
+        public IOrderedEnumerable<Heading> GetOrderList()
+        {
+            return _headingDal.List().OrderByDescending(x => x.Id);
+        }
+
+        public IOrderedEnumerable<Heading> GetSearch(string search)
+        {
+            return _headingDal.List(x => x.Name.ToLower().Contains(search)).OrderByDescending(x => x.Id);
+        }
+
         public void Update(Heading p)
         {
             _headingDal.Update(p);

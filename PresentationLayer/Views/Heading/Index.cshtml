@@ -1,10 +1,18 @@
-﻿@model IEnumerable<EntityLayer.Concrete.Heading>
+﻿@model IOrderedEnumerable<EntityLayer.Concrete.Heading>
 
 @{
     ViewBag.Title = "Headings";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 
     int i = 0;
+}
+
+@using (Html.BeginForm("Index", "Heading", FormMethod.Get))
+{
+    <div class="input-group">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Search...">
+        <span class="input-group-btn"><button type="button" class="btn waves-effect waves-light btn-info"><i class="fa fa-search"></i></button></span>
+    </div>
 }
 
 <div class="row">

@@ -12,6 +12,8 @@ namespace BusinessLayer.Abstract
         List<Heading> GetList();
         List<Heading> GetByWriterList(int id);
         List<Heading> GetByList(int id);
+        IOrderedEnumerable<Heading> GetOrderList();
+        IOrderedEnumerable<Heading> GetSearch(string search);
         int CategoryCount();
         Heading GetById(int id);
         void Add(Heading p);
