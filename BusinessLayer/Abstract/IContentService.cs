@@ -10,10 +10,12 @@ namespace BusinessLayer.Abstract
     public interface IContentService
     {
         List<Content> GetList();
-        List<Content> GetByList(int? id);
+        List<Content> GetByList(int id);
         Content GetById(int id);
         List<Content> GetWriter(int id);
         List<Content> GetHeading(int id);
+        IOrderedEnumerable<Content> GetSearch(string search);
+        IOrderedEnumerable<Content> GetOrderList(int? id);
         void Add(Content p);
         void Update(Content p);
         void Delete(Content p);

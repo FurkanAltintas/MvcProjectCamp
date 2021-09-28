@@ -56,13 +56,28 @@ namespace BusinessLayer.Concrete
 
         public List<Content> GetByList(int? id)
         {
+            return _contentDal.List(x => x.HeadingId == id);
+        }
+
+        public IOrderedEnumerable<Content> GetSearch(string search)
+        {
+            return _contentDal.List(x => x.Heading.Name.ToLower().Contains(search)).OrderByDescending(x => x.Id);
+        }
+
+        public List<Content> GetByList(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IOrderedEnumerable<Content> GetOrderList(int? id)
+        {
             if (id > 0)
             {
-                return _contentDal.List(x => x.HeadingId == id);
+                return _contentDal.List(x => x.HeadingId == id).OrderByDescending(x => x.Id);
             }
             else
             {
-                return GetList();
+                return _contentDal.List().OrderByDescending(x => x.Id);
             }
         }
     }

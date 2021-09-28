@@ -14,9 +14,16 @@ namespace PresentationLayer.Controllers.ShowCase
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         ContentManager contentManager = new ContentManager(new EfContentDal());
         // GET: Default
-        public PartialViewResult Index(int? id)
+        public PartialViewResult Index(int? id, string search)
         {
-            var list = contentManager.GetByList(id);
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.ToLower();
+                var listSearch = contentManager.GetSearch(search);
+                return PartialView(listSearch);
+            }
+
+            var list = contentManager.GetOrderList(id);
             return PartialView(list);
         }
 

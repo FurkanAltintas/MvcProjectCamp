@@ -59,7 +59,7 @@
                 <div class="top-left-part"><a class="logo" href="index.html"><b><img src="~/eliteadmin/plugins/images/eliteadmin-logo.png" alt="home" /></b><span class="hidden-xs"><img src="~/eliteadmin/plugins/images/eliteadmin-text.png" alt="home" /></span></a></div>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                     <li>
-                        @using (Html.BeginForm("Search", "Default", FormMethod.Get, new { @role = "search", @class = "app-search hidden-xs" }))
+                        @using (Html.BeginForm("Headings", "Default", FormMethod.Get, new { @role = "search", @class = "app-search hidden-xs" }))
                         {
                             <input type="text" id="search" name="search" placeholder="Search..." class="form-control">
                             <a href=""><i class="fa fa-search"></i></a>
@@ -253,11 +253,11 @@
                     else
                     {
                         <li class="dropdown">
-                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <b class="hidden-xs">Register</b> </a>
+                            <a class="dropdown-toggle profile-pic" data-toggle="register" href="#"> <b class="hidden-xs">Register</b> </a>
                             <!-- /.dropdown-user -->
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <b class="hidden-xs">Login</b> </a>
+                            <a class="dropdown-toggle profile-pic" data-toggle="login" href="#"> <b class="hidden-xs">Login</b> </a>
                         </li>
                     }
                 </ul>
