@@ -25,9 +25,13 @@ namespace PresentationLayer.Controllers.WriterDashboard
         [Route("{WriterPanelMessage}/{Mail}/{mails}")] //filter ile inbox,sent mail, draft,starred ve trash bilgilerine erişebiliyoruz. Böyle 5 defa aynı kodu yazmamış olduk
         public ActionResult Mails(string mails, string filter)
         {
-            if (filter == null && mails == null)
+            if (filter == null)
             {
                 filter = "All";
+            }
+
+            if (mails == null)
+            {
                 ViewBag.Title = "Inbox";
                 var all = messageManager.GetListInbox(DontHashMail);
                 return View(all);
@@ -53,7 +57,7 @@ namespace PresentationLayer.Controllers.WriterDashboard
                         return View(unread);
 
                     }
-                    return RedirectToAction("Index", "Contact");
+                    return RedirectToAction("Mail");
 
                 case "Sendbox":
                     ViewBag.Title = "Sendbox";
@@ -73,7 +77,7 @@ namespace PresentationLayer.Controllers.WriterDashboard
                         return View(unread);
 
                     }
-                    return RedirectToAction("Index", "Contact");
+                    return RedirectToAction("Mail");
 
                 case "Draft":
                     ViewBag.Title = "Draft";
@@ -93,7 +97,7 @@ namespace PresentationLayer.Controllers.WriterDashboard
                         return View(unread);
 
                     }
-                    return RedirectToAction("Index", "Contact");
+                    return RedirectToAction("Mail");
 
                 case "Trash":
                     ViewBag.Title = "Trash";
@@ -112,7 +116,7 @@ namespace PresentationLayer.Controllers.WriterDashboard
                         var unread = messageManager.GetListTrashUnRead(DontHashMail);
                         return View(unread);
                     }
-                    return RedirectToAction("Index", "Contact");
+                    return RedirectToAction("Mail");
 
                 case "Starred":
                     ViewBag.Title = "Starred";
@@ -131,10 +135,10 @@ namespace PresentationLayer.Controllers.WriterDashboard
                         var unread = messageManager.GetListStarUnRead(DontHashMail);
                         return View(unread);
                     }
-                    return RedirectToAction("Index", "Contact");
+                    return RedirectToAction("Mail");
 
                 default:
-                    return RedirectToAction("Index", "Contact");
+                    return RedirectToAction("Mail");
             }
         }
 
