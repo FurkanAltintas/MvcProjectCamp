@@ -2473,6 +2473,48 @@
     <Content Include="eliteadmin\plugins\images\users\sonu.jpg" />
     <Content Include="eliteadmin\plugins\images\users\varun.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="home\css\aos-animation.css" />
+    <Content Include="home\css\aos.css" />
+    <Content Include="home\css\bootstrap.css" />
+    <Content Include="home\css\fontawesome-all.css" />
+    <Content Include="home\css\roadmap.css" />
+    <Content Include="home\css\simpleLightbox.css" />
+    <Content Include="home\css\snow.css" />
+    <Content Include="home\css\style.css" />
+    <Content Include="home\images\banner.jpg" />
+    <Content Include="home\images\close.png" />
+    <Content Include="home\images\contact.jpg" />
+    <Content Include="home\images\exp.jpg" />
+    <Content Include="home\images\g1.jpg" />
+    <Content Include="home\images\g2.jpg" />
+    <Content Include="home\images\g3.jpg" />
+    <Content Include="home\images\g4.jpg" />
+    <Content Include="home\images\g5.jpg" />
+    <Content Include="home\images\g6.jpg" />
+    <Content Include="home\images\g7.jpg" />
+    <Content Include="home\images\g8.jpg" />
+    <Content Include="home\images\g9.jpg" />
+    <Content Include="home\images\loader.gif" />
+    <Content Include="home\images\move_up.png" />
+    <Content Include="home\images\next.png" />
+    <Content Include="home\images\prev.png" />
+    <Content Include="home\images\serve.jpg" />
+    <Content Include="home\images\stats.jpg" />
+    <Content Include="home\images\testimonials.jpg" />
+    <Content Include="home\index.html" />
+    <Content Include="home\js\aos.js" />
+    <Content Include="home\js\bootstrap.js" />
+    <Content Include="home\js\easing.js" />
+    <Content Include="home\js\jquery-2.2.3.min.js" />
+    <Content Include="home\js\jquery.countup.js" />
+    <Content Include="home\js\jquery.roadmap.js" />
+    <Content Include="home\js\jquery.waypoints.min.js" />
+    <Content Include="home\js\move-top.js" />
+    <Content Include="home\js\simpleLightbox.js" />
+    <Content Include="home\w3layouts-license.txt" />
+    <Content Include="home\webfonts\fa-brands-400.svg" />
+    <Content Include="home\webfonts\fa-regular-400.svg" />
+    <Content Include="home\webfonts\fa-solid-900.svg" />
     <Content Include="Images\Assets\landscape1.jpg" />
     <Content Include="Images\Assets\landscape10.jpg" />
     <Content Include="Images\Assets\landscape11.jpg" />
@@ -2768,6 +2810,18 @@
     <Content Include="eliteadmin\eliteadmin\less\style.less" />
     <Content Include="eliteadmin\eliteadmin\less\variables.less" />
     <Content Include="eliteadmin\eliteadmin\less\widgets.less" />
+    <Content Include="home\webfonts\fa-brands-400.eot" />
+    <Content Include="home\webfonts\fa-brands-400.ttf" />
+    <Content Include="home\webfonts\fa-brands-400.woff" />
+    <Content Include="home\webfonts\fa-brands-400.woff2" />
+    <Content Include="home\webfonts\fa-regular-400.eot" />
+    <Content Include="home\webfonts\fa-regular-400.ttf" />
+    <Content Include="home\webfonts\fa-regular-400.woff" />
+    <Content Include="home\webfonts\fa-regular-400.woff2" />
+    <Content Include="home\webfonts\fa-solid-900.eot" />
+    <Content Include="home\webfonts\fa-solid-900.ttf" />
+    <Content Include="home\webfonts\fa-solid-900.woff" />
+    <Content Include="home\webfonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -2798,6 +2852,7 @@
     <Compile Include="Controllers\AdminDashboard\MessageController.cs" />
     <Compile Include="Controllers\AdminDashboard\WriterController.cs" />
     <Compile Include="Controllers\Error\ErrorController.cs" />
+    <Compile Include="Controllers\HomeWebSite\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ShowCase\DefaultController.cs" />
     <Compile Include="Controllers\SkillCard\AbilityController.cs" />
@@ -3975,6 +4030,18 @@
     <Content Include="Views\WriterPanelContent\Add.cshtml" />
     <Content Include="Views\WriterPanel\Profile.cshtml" />
     <Content Include="Views\WriterPanel\WriterContent.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Service.cshtml" />
+    <Content Include="Views\Home\Experience.cshtml" />
+    <Content Include="Views\Home\Project.cshtml" />
+    <Content Include="Views\Home\Statistic.cshtml" />
+    <Content Include="Views\Home\Comment.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3983,7 +4050,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\HomeWebSite\" />
     <Folder Include="eliteadmin\plugins\bower_components\etc%281%29\" />
     <Folder Include="eliteadmin\plugins\bower_components\etc\" />
     <Folder Include="Views\Base\" />
