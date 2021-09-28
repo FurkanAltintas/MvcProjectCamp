@@ -53,7 +53,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
         //Partial Homework
         public ActionResult Compose() //partial
         {
-            string mail = Session["Email"].ToString();
+            string mail = Session["DontHashMail"].ToString();
 
             ViewBag.Contact = contactManager.GetList().Count();
             ViewBag.Inbox = messageManager.GetListInbox(mail).Count();

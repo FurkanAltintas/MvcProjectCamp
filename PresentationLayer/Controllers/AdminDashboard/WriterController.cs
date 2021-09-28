@@ -14,7 +14,7 @@ using PresentationLayer.Security;
 
 namespace PresentationLayer.Controllers.AdminDashboard
 {
-    public class WriterController : WriterLoginController
+    public class WriterController : Controller
     {
         WriterManager writerManager = new WriterManager(new EfWriterDal());
         private ContentManager contentManager = new ContentManager(new EfContentDal());
@@ -56,7 +56,6 @@ namespace PresentationLayer.Controllers.AdminDashboard
         [HttpGet]
         public ActionResult Detail(int id)
         {
-            ViewBag.Mail = DontHashMail;
             writerDetail.Writer = writerManager.GetById(id);
             writerDetail.Content = contentManager.GetWriter(id);
             return View(writerDetail);

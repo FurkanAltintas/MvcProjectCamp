@@ -25,13 +25,11 @@ namespace PresentationLayer.Controllers.WriterDashboard
         [Route("{WriterPanelMessage}/{Mail}/{mails}")] //filter ile inbox,sent mail, draft,starred ve trash bilgilerine erişebiliyoruz. Böyle 5 defa aynı kodu yazmamış olduk
         public ActionResult Mails(string mails, string filter)
         {
-            ViewBag.FullName = FullName;
-
-            if (filter == null || mails == null)
+            if (filter == null && mails == null)
             {
                 filter = "All";
                 ViewBag.Title = "Inbox";
-                var all = messageManager.GetListInbox(Mail);
+                var all = messageManager.GetListInbox(DontHashMail);
                 return View(all);
             }
 
@@ -41,17 +39,17 @@ namespace PresentationLayer.Controllers.WriterDashboard
                     ViewBag.Title = "Inbox";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListInbox(Mail);
+                        var all = messageManager.GetListInbox(DontHashMail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListInboxRead(Mail);
+                        var read = messageManager.GetListInboxRead(DontHashMail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListInboxUnRead(Mail);
+                        var unread = messageManager.GetListInboxUnRead(DontHashMail);
                         return View(unread);
 
                     }
@@ -61,17 +59,17 @@ namespace PresentationLayer.Controllers.WriterDashboard
                     ViewBag.Title = "Sendbox";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListSendbox(Mail);
+                        var all = messageManager.GetListSendbox(DontHashMail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListSendboxRead(Mail);
+                        var read = messageManager.GetListSendboxRead(DontHashMail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListSendboxUnRead(Mail);
+                        var unread = messageManager.GetListSendboxUnRead(DontHashMail);
                         return View(unread);
 
                     }
@@ -81,17 +79,17 @@ namespace PresentationLayer.Controllers.WriterDashboard
                     ViewBag.Title = "Draft";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListDraft(Mail);
+                        var all = messageManager.GetListDraft(DontHashMail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListDraftRead(Mail);
+                        var read = messageManager.GetListDraftRead(DontHashMail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListDraftUnRead(Mail);
+                        var unread = messageManager.GetListDraftUnRead(DontHashMail);
                         return View(unread);
 
                     }
@@ -101,17 +99,17 @@ namespace PresentationLayer.Controllers.WriterDashboard
                     ViewBag.Title = "Trash";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListTrash(Mail);
+                        var all = messageManager.GetListTrash(DontHashMail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListTrashRead(Mail);
+                        var read = messageManager.GetListTrashRead(DontHashMail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListTrashUnRead(Mail);
+                        var unread = messageManager.GetListTrashUnRead(DontHashMail);
                         return View(unread);
                     }
                     return RedirectToAction("Index", "Contact");
@@ -120,17 +118,17 @@ namespace PresentationLayer.Controllers.WriterDashboard
                     ViewBag.Title = "Starred";
                     if (filter == "All")
                     {
-                        var all = messageManager.GetListStar(Mail);
+                        var all = messageManager.GetListStar(DontHashMail);
                         return View(all);
                     }
                     else if (filter == "Read")
                     {
-                        var read = messageManager.GetListStarRead(Mail);
+                        var read = messageManager.GetListStarRead(DontHashMail);
                         return View(read);
                     }
                     else if (filter == "Unread")
                     {
-                        var unread = messageManager.GetListStarUnRead(Mail);
+                        var unread = messageManager.GetListStarUnRead(DontHashMail);
                         return View(unread);
                     }
                     return RedirectToAction("Index", "Contact");
@@ -196,8 +194,6 @@ namespace PresentationLayer.Controllers.WriterDashboard
         //[Route("{Message}/{Mail}/{mails}/{url}/{id}")]
         public ActionResult Detail(string url, int id)
         {
-            ViewBag.FullName = FullName;
-
             var key = messageManager.GetById(id);
 
             if (key.IsDraft == true)

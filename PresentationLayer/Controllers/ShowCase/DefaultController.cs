@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace PresentationLayer.Controllers.ShowCase
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
