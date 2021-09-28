@@ -54,7 +54,6 @@
                 <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
                 <div class="top-left-part"><a class="logo" href="index.html"><b><img src="~/eliteadmin/plugins/images/eliteadmin-logo.png" alt="home" /></b><span class="hidden-xs"><img src="~/eliteadmin/plugins/images/eliteadmin-text.png" alt="home" /></span></a></div>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
-                    <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
                     <li>
                         <form role="search" class="app-search hidden-xs">
                             <input type="text" placeholder="Search..." class="form-control">
@@ -276,7 +275,7 @@
                     <li class="nav-small-cap m-t-10">--- Agenda</li>
                     @foreach (var item in Model)
                     {
-                        <li><a href="/@item.Name/" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> @item.Name  </span></a></li>
+                        <li><a href="/@item.Name/" class="waves-effect active"> <span class="hide-menu"> @item.Name  </span></a></li>
                     }
                 </ul>
             </div>

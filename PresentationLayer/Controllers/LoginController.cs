@@ -31,14 +31,15 @@ namespace PresentationLayer.Controllers
         [HttpPost]
         public ActionResult Index(Admin p)
         {
+            string mail = p.Email;
+
             if (adminManager.GetLogin(p))
             {
                 //var user = adminManager.GetByEmail(p.Email);
 
                 FormsAuthentication.SetAuthCookie(p.Email, false);
                 Session["Email"] = p.Email;
-                //Session["UserName"] = user.UserName;
-                //Session["Profile"] = user.Profile;
+                Session["DontHashMail"] = mail;
                 return RedirectToAction("Index", "Dashboard");
             }
             else
@@ -59,6 +60,8 @@ namespace PresentationLayer.Controllers
         {
             bool isCaptchaValid = ValidateCaptcha(Request["g-recaptcha-response"]);
 
+            string mail = p.Mail;
+
             if (!isCaptchaValid)
             {
                 ViewBag.Error = "You need to verify Google reCaptcha";
@@ -70,6 +73,7 @@ namespace PresentationLayer.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(p.Mail, false);
                     Session["Email"] = p.Mail;
+                    Session["DontHashMail"] = mail;
                     return RedirectToAction("Index", "WriterPanel");
                 }
                 else
@@ -98,7 +102,7 @@ namespace PresentationLayer.Controllers
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

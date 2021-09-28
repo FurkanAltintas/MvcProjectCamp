@@ -14,6 +14,7 @@ namespace PresentationLayer.Security
 
         public int Id { get; set; }
         public string Mail { get; set; }
+        public string DontHashMail { get; set; }
         public string FullName { get; set; }
         // GET: Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -25,6 +26,8 @@ namespace PresentationLayer.Security
             else
             {
                 Mail = (string)Session["Email"];
+                DontHashMail = (string)Session["DontHashMail"];
+
                 var user = writerManager.GetByEmail(Mail);
                 FullName = user.FullName;
                 Id = user.Id;

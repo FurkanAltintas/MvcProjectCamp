@@ -18359,7 +18359,7 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
     }
 
     .footer {
-        left: 220px;
+        /*left: 220px;*/
     }
     /*If body has content-wrapper*/
     .content-wrapper #page-wrapper {

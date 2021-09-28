@@ -91,6 +91,12 @@ namespace BusinessLayer.Concrete
 
         public void Update(Admin p)
         {
+            string pass = p.Password;
+            string email = p.Email;
+            string key = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(pass)));
+            string mail = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(email)));
+            p.Password = key;
+            p.Email = mail;
             _adminDal.Update(p);
         }
     }

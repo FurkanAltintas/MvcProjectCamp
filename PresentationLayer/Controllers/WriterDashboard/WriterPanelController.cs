@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using PagedList;
 using PresentationLayer.Security;
 using System;
@@ -15,6 +17,9 @@ namespace PresentationLayer.Controllers.WriterDashboard
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        ContentManager contentManager = new ContentManager(new EfContentDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
+        WriterValidator writerValidator = new WriterValidator();
         // GET: Writer
         public ActionResult Index()
         {
@@ -78,6 +83,39 @@ namespace PresentationLayer.Controllers.WriterDashboard
             return View(list);
         }
 
+        public ActionResult Profile()
+        {
+            ViewBag.Mail = DontHashMail;
+
+            var mail = writerManager.GetByEmail(Mail);
+            return View(mail);
+        }
+
+        [HttpPost]
+        public ActionResult Profile(Writer p)
+        {
+            ValidationResult validationResult = writerValidator.Validate(p);
+
+            if (validationResult.IsValid)
+            {
+                writerManager.Update(p);
+                return RedirectToAction("Profile");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View(p);
+        }
+
+        public PartialViewResult WriterContent()
+        {
+            var list = contentManager.GetWriter(Id);
+            return PartialView(list);
+        }
 
         public void Category()
         {

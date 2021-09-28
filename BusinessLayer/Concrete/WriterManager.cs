@@ -38,6 +38,12 @@ namespace BusinessLayer.Concrete
 
         public void Update(Writer p)
         {
+            string pass = p.Password;
+            string email = p.Mail;
+            string key = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(pass)));
+            string mail = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(email)));
+            p.Password = key;
+            p.Mail = mail;
             _writerDal.Update(p);
         }
 
