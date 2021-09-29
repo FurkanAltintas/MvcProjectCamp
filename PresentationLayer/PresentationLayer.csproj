@@ -2552,6 +2552,9 @@
     <Content Include="Images\Writer\sungerbob7.jpg" />
     <Content Include="Images\Writer\sungerbob8.jpg" />
     <Content Include="Images\Writer\sungerbob9.jpg" />
+    <Content Include="Screenshot\Charts\CategoryChart.jpg" />
+    <Content Include="Screenshot\Charts\ContentChart.jpg" />
+    <Content Include="Screenshot\Charts\HeadingChart.jpg" />
     <Content Include="Screenshot\Project\Contact Detail.jpg" />
     <Content Include="Screenshot\Project\Contact Filter.jpg" />
     <Content Include="Screenshot\Project\Contact.jpg" />
