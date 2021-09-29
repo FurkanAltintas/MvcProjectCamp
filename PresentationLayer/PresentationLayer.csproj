@@ -4051,6 +4051,7 @@
     <Content Include="Views\Chart\Category.cshtml" />
     <Content Include="Views\Chart\Heading.cshtml" />
     <Content Include="Views\Chart\Content.cshtml" />
+    <Content Include="Views\Heading\Report.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

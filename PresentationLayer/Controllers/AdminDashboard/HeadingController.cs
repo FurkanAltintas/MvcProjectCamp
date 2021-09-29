@@ -102,9 +102,22 @@ namespace PresentationLayer.Controllers.AdminDashboard
             return RedirectToAction("Index");
         }
 
+        public ActionResult Report()
+        {
+            var list = headingManager.GetOrderList();
+            return View(list);
+            //return View(List());
+        }
+
         public void Category()
         {
             ViewBag.Category = new SelectList(categoryManager.GetList().OrderBy(x => x.Name), "Id", "Name");
+        }
+
+        public ActionResult List()
+        {
+            var list = headingManager.GetOrderList();
+            return View(list);
         }
     }
 }
