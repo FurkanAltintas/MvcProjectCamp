@@ -7,6 +7,7 @@ using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 
 namespace BusinessLayer.Concrete
 {
@@ -39,9 +40,9 @@ namespace BusinessLayer.Concrete
             return _contentDal.Get(x => x.Id == id);
         }
 
-        public List<Content> GetList()
+        public IOrderedEnumerable<Content> GetList()
         {
-            return _contentDal.List();
+            return _contentDal.List().OrderByDescending(x => x.Id);
         }
 
         public List<Content> GetWriter(int id)
@@ -54,19 +55,21 @@ namespace BusinessLayer.Concrete
             return _contentDal.List(x => x.HeadingId == id);
         }
 
-        public List<Content> GetByList(int? id)
+        public List<Content> GetByList(int id)
         {
             return _contentDal.List(x => x.HeadingId == id);
         }
 
         public IOrderedEnumerable<Content> GetSearch(string search)
         {
-            return _contentDal.List(x => x.Heading.Name.ToLower().Contains(search) || x.Value.ToLower().Contains(search)).OrderByDescending(x => x.Id);
-        }
+            var list = _contentDal.List(x => x.Heading.Name.ToLower().Contains(search) || x.Value.ToLower().Contains(search)).OrderByDescending(x => x.Id);
 
-        public List<Content> GetByList(int id)
-        {
-            throw new NotImplementedException();
+            if (list == null)
+            {
+                return GetList();
+            }
+
+            return list;
         }
 
         public IOrderedEnumerable<Content> GetOrderList(int? id)
@@ -79,6 +82,24 @@ namespace BusinessLayer.Concrete
             {
                 return _contentDal.List().OrderByDescending(x => x.Id);
             }
+        }
+
+        public List<ContentChart> GetChart()
+        {
+            List<ContentChart> contentChart = new List<ContentChart>();
+
+            var list = _contentDal.List();
+
+            foreach (var item in list)
+            {
+                contentChart.Add(new ContentChart()
+                {
+                    FullName = item.Writer.Name + " " + item.Writer.SurName,
+                    Count = item.Id
+                });
+            }
+
+            return contentChart;
         }
     }
 }

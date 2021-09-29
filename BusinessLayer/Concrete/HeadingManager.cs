@@ -60,7 +60,7 @@ namespace BusinessLayer.Concrete
                 headingChart.Add(new HeadingChart()
                 {
                     Name = item.Name,
-                    Count = list.Count()
+                    Count = item.Id
                 });
             }
 

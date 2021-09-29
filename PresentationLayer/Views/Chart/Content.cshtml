@@ -31,31 +31,31 @@
 
         function drawChart(result) {
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Name');
+            data.addColumn('string', 'FullName');
             data.addColumn('number', 'Count');
             var dataArray = [];
 
             $.each(result, function (i, obj) {
-                dataArray.push([obj.Name, obj.Count]);
+                dataArray.push([obj.FullName, obj.Count]);
             });
             data.addRows(dataArray);
 
             var columnChartOptions = {
-                title: "Kategori - Başlık Grafiği",
+                title: "Writer - Content Graphic",
                 width: 1000,
                 height: 800,
                 bar: { groupWidth: "20%" },
             };
 
-            var columnChart = new google.visualization.PieChart(document
-                .getElementById('Piechart_div'));
+            var columnChart = new google.visualization.LineChart(document
+                .getElementById('linechart_div'));
 
             columnChart.draw(data, columnChartOptions);
         }
     </script>
 </head>
 <body>
-    <div id="Piechart_div"></div>
+    <div id="linechart_div"></div>
 </body>
 </html>
 

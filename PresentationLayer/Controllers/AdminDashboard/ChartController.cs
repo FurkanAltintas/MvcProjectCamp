@@ -39,5 +39,10 @@ namespace PresentationLayer.Controllers.AdminDashboard
         {
             return Json(headingManager.GetChart(), JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult ContentChart()
+        {
+            return Json(contentManager.GetChart(), JsonRequestBehavior.AllowGet);
+        }
     }
 }
