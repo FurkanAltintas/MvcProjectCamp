@@ -10,64 +10,64 @@ namespace PresentationLayer.Controllers.HomeWebSite
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public PartialViewResult Index()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Home()
+        public PartialViewResult Home()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult About()
+        public PartialViewResult About()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Service()
+        public PartialViewResult Service()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Experience()
+        public PartialViewResult Experience()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Project()
+        public PartialViewResult Project()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Statistic()
+        public PartialViewResult Statistic()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Comment()
+        public PartialViewResult Comment()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Contact()
+        public PartialViewResult Contact()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Footer()
+        public PartialViewResult Footer()
         { 
-            return View(); 
+            return PartialView(); 
         }
 
-        public ActionResult Login()
+        public PartialViewResult Login()
         {
-            return View();
+            return PartialView();
         }
 
-        public ActionResult Register()
+        public PartialViewResult Register()
         {
-            return View();
+            return PartialView();
         }
     }
 }

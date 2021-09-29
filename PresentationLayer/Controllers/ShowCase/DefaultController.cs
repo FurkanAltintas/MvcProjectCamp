@@ -9,6 +9,7 @@ using System.Web.Mvc;
 namespace PresentationLayer.Controllers.ShowCase
 {
     [AllowAnonymous]
+    [Route("{controller}/{action}/{id}")]
     public class DefaultController : Controller
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());

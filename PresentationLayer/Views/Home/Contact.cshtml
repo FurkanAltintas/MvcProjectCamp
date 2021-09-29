@@ -1,8 +1,4 @@
-﻿
-@{
-    ViewBag.Title = "Contact";
-    Layout = "~/Views/Shared/_LayoutHome.cshtml";
-}
+﻿@model EntityLayer.Concrete.Contact
 
 <section class="contact py-lg-5 py-md-5 py-3" id="contact">
     <div class="container">
@@ -11,32 +7,33 @@
             <h3 class="tittle-w3 text-uppercase mb-lg-5 mb-3 text-center text-white">Contact Me Now</h3>
 
             <div class="contact_grid_right">
-                <form action="#" method="post">
-                    <div class="row contact_left_grid">
+                @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+                {
+                    <div class="form-row contact_left_grid">
                         <div class="col-md-6 con-left" data-aos="fade-up">
                             <div class="form-group">
-
-                                <input class="form-control" type="text" name="Name" placeholder="" required="">
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Name" })
                             </div>
                             <div class="form-group">
-
-                                <input class="form-control" type="email" name="Email" placeholder="" required="">
+                                @Html.TextBoxFor(x => x.SurName, new { @class = "form-control", @placeholder = "SurName" })
                             </div>
                             <div class="form-group">
-
-                                <input class="form-control" type="text" name="Subject" placeholder="" required="">
+                                @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @placeholder = "Email" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Subject, new { @class = "form-control", @placeholder = "Subject" })
                             </div>
                         </div>
                         <div class="col-md-6 con-right" data-aos="fade-up">
                             <div class="form-group">
-                                <textarea id="textarea" placeholder="" required=""></textarea>
+                                @Html.TextAreaFor(x => x.Message, 10, 0, new { @placeholder = "Message" })
                             </div>
                         </div>
                         <div class="sub-honey mx-auto mt-3">
                             <input class="form-control" type="submit" value="Submit">
                         </div>
                     </div>
-                </form>
+                }
             </div>
             <div class="address row mt-lg-5">
 
