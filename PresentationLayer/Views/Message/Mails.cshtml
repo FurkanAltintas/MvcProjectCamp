@@ -99,7 +99,7 @@
                                             <td class="hidden-xs">@ViewBag.Mail</td>
                                             <td class="max-texts">
                                                 <a href="/Dashboard/Message/Detail/@item.Id">
-                                                    @*@Url.Action("Detail","Message",new {id=item.Id})*@
+                                                    @*{Message}/{Mail}/{mails}/{url}/{id}*@
                                                     <span class="label label-success">@item.Subject</span>
                                                     @if (item.Messages.Length < 50)
                                                     {

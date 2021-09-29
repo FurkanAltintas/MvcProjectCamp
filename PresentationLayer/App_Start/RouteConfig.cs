@@ -14,16 +14,16 @@ namespace PresentationLayer
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-            name: "Contact",
-            url: "{controller}/{Mail}/{u}/{0}/{filter}",
-            defaults: new { controller = "Contact", action = "Index", String = "" }
-        );
+              name: "Contact",
+              url: "{controller}/{Mail}/{u}/{0}/{filter}",
+              defaults: new { controller = "Contact", action = "Index", String = "" }
+            );
 
-        //    routes.MapRoute(
-        //    name: "Dashboard",
-        //    url: "Dashboard/{controller}/{action}/{id}",
-        //    defaults: new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional }
-        //);
+            routes.MapRoute(
+              name: "Dashboard",
+              url: "Dashboard/{controller}/{action}/{id}",
+              defaults: new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional }
+           );
 
             routes.MapRoute(
               name: "Filter",

@@ -62,14 +62,14 @@ namespace BusinessLayer.Concrete
 
         public IOrderedEnumerable<Content> GetSearch(string search)
         {
-            var list = _contentDal.List(x => x.Heading.Name.ToLower().Contains(search) || x.Value.ToLower().Contains(search)).OrderByDescending(x => x.Id);
+            return _contentDal.List(x => x.Heading.Name.ToLower().Contains(search) || x.Value.ToLower().Contains(search)).OrderByDescending(x => x.Id);
 
-            if (list == null)
-            {
-                return GetList();
-            }
+            //if (list == null)
+            //{
+            //    return GetList();
+            //}
 
-            return list;
+            //return list;
         }
 
         public IOrderedEnumerable<Content> GetOrderList(int? id)

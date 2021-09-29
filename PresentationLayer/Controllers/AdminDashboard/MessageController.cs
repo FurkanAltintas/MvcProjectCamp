@@ -60,7 +60,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
         //}
         #endregion
 
-        //[Route("{Message}/{Mail}/{mails}/{url}/{id}")]
+        [Route("{Message}/{Mail}/{mails}/{url}/{id}")]
         public ActionResult Detail(string url, int id)
         {
             var key = messageManager.GetById(id);
