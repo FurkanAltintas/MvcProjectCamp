@@ -1,4 +1,5 @@
-﻿
+﻿@model EntityLayer.Concrete.Contact
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
@@ -18,7 +19,96 @@
 
 @Html.Action("Comment")
 
-@Html.Action("Contact")
+<section class="contact py-lg-5 py-md-5 py-3" id="contact">
+    <div class="container">
+        <div class="inner-sec-w3ls py-lg-5 py-3">
+            <h4 class="sub-tittle-w3 text-uppercase text-center">Find Me</h4>
+            <h3 class="tittle-w3 text-uppercase mb-lg-5 mb-3 text-center text-white">Contact Me Now</h3>
+
+            <div class="contact_grid_right">
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                {
+                    <div class="form-row contact_left_grid">
+                        <div class="col-md-6 con-left" data-aos="fade-up">
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Name" })
+                                @Html.ValidationMessageFor(x=>x.Name)
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.SurName, new { @class = "form-control", @placeholder = "SurName" })
+                                @Html.ValidationMessageFor(x => x.SurName)
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @placeholder = "Email" })
+                                @Html.ValidationMessageFor(x => x.Mail)
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Subject, new { @class = "form-control", @placeholder = "Subject" })
+                                @Html.ValidationMessageFor(x => x.Subject)
+                            </div>
+                        </div>
+                        <div class="col-md-6 con-right" data-aos="fade-up">
+                            <div class="form-group">
+                                @Html.TextAreaFor(x => x.Message, 10, 0, new { @placeholder = "Message" })
+                                @Html.ValidationMessageFor(x => x.Message)
+                            </div>
+                        </div>
+                        <div class="sub-honey mx-auto mt-3">
+                            <input class="form-control" type="submit" value="Submit">
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="address row mt-lg-5">
+
+                <div class="col-md-4 address-grid" data-aos="flip-up">
+                    <div class="address-info">
+                        <div class="address-left text-center">
+                            <i class="far fa-map"></i>
+                        </div>
+                        <div class="address-right text-center">
+                            <h6 class="my-3">Address</h6>
+                            <p>
+                                California, USA
+
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 address-grid" data-aos="flip-up">
+                    <div class="address-info">
+                        <div class="address-left text-center">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="address-right text-center">
+                            <h6 class="my-3">Email</h6>
+                            <p>
+                                Email :
+                                <a href="mailto:example@email.com"> mail@example.com</a>
+
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4 address-grid" data-aos="flip-up">
+                    <div class="address-info">
+                        <div class="address-left text-center">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="address-right text-center">
+                            <h6 class="my-3">Phone</h6>
+                            <p>+1 234 567 8901</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 @Html.Action("Footer")
 

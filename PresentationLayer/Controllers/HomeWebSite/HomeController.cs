@@ -1,4 +1,9 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using FluentValidation.Results;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +14,33 @@ namespace PresentationLayer.Controllers.HomeWebSite
     [AllowAnonymous]
     public class HomeController : Controller
     {
+        ContactManager contactManager = new ContactManager(new EfContactDal());
+        ContactValidator contactValidator = new ContactValidator();
         // GET: Home
         public PartialViewResult Index()
         {
             return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult Index(Contact p)
+        {
+            ValidationResult validationResult = contactValidator.Validate(p);
+
+            if (validationResult.IsValid)
+            {
+                p.CreDate = DateTime.Now;
+                contactManager.Add(p);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View(p);
         }
 
         public PartialViewResult Home()
@@ -50,14 +78,9 @@ namespace PresentationLayer.Controllers.HomeWebSite
             return PartialView();
         }
 
-        public PartialViewResult Contact()
+        public PartialViewResult Footer()
         {
             return PartialView();
-        }
-
-        public PartialViewResult Footer()
-        { 
-            return PartialView(); 
         }
 
         public PartialViewResult Login()

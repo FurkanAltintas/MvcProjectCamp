@@ -56,6 +56,8 @@
     <Compile Include="Concrete\ImageCategory.cs" />
     <Compile Include="Concrete\Message.cs" />
     <Compile Include="Concrete\Writer.cs" />
+    <Compile Include="Dto\CategoryChart.cs" />
+    <Compile Include="Dto\HeadingChart.cs" />
     <Compile Include="Dto\WriterDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

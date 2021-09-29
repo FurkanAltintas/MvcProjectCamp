@@ -19,11 +19,11 @@ namespace PresentationLayer
             defaults: new { controller = "Contact", action = "Index", String = "" }
         );
 
-            routes.MapRoute(
-            name: "Dashboard",
-            url: "Dashboard/{controller}/{action}/{id}",
-            defaults: new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional }
-        );
+        //    routes.MapRoute(
+        //    name: "Dashboard",
+        //    url: "Dashboard/{controller}/{action}/{id}",
+        //    defaults: new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional }
+        //);
 
             routes.MapRoute(
               name: "Filter",

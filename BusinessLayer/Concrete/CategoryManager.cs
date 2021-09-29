@@ -7,6 +7,7 @@ using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 
 namespace BusinessLayer.Concrete
 {
@@ -53,6 +54,24 @@ namespace BusinessLayer.Concrete
         public int StatusFalse()
         {
             return _categoryDal.List(x => x.IsActive == false).Count;
+        }
+
+        public List<CategoryChart> GetChart()
+        {
+            List<CategoryChart> categoryChart = new List<CategoryChart>();
+
+            var list = _categoryDal.List();
+
+            foreach (var item in list)
+            {
+                categoryChart.Add(new CategoryChart()
+                {
+                    Name = item.Name,
+                    Count = item.Id
+                });
+            }
+
+            return categoryChart;
         }
     }
 }
