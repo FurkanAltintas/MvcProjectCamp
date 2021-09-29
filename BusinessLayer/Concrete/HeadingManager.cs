@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 
 namespace BusinessLayer.Concrete
 {
@@ -46,6 +47,24 @@ namespace BusinessLayer.Concrete
         public List<Heading> GetByWriterList(int id)
         {
             return _headingDal.List(x => x.WriterId == id && x.IsActive == true);
+        }
+
+        public List<HeadingChart> GetChart()
+        {
+            List<HeadingChart> headingChart = new List<HeadingChart>();
+
+            var list = _headingDal.List();
+
+            foreach (var item in list)
+            {
+                headingChart.Add(new HeadingChart()
+                {
+                    Name = item.Name,
+                    Count = list.Count()
+                });
+            }
+
+            return headingChart;
         }
 
         public List<Heading> GetList()

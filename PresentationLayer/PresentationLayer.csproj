@@ -4044,7 +4044,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Content\Index.cshtml" />
-    <Content Include="Views\Chart\Index.cshtml" />
+    <Content Include="Views\Chart\Category.cshtml" />
     <Content Include="Views\Chart\Heading.cshtml" />
     <Content Include="Views\Chart\Content.cshtml" />
     <None Include="Web.Debug.config">

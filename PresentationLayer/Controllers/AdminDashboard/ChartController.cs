@@ -12,8 +12,10 @@ namespace PresentationLayer.Controllers.AdminDashboard
     public class ChartController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        ContentManager contentManager = new ContentManager(new EfContentDal());
         // GET: Chart
-        public ActionResult Index()
+        public ActionResult Category()
         {
             return View();
         }
@@ -35,12 +37,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
 
         public ActionResult HeadingChart()
         {
-            return Json(categoryManager.GetChart(), JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult ContentChart()
-        {
-            return Json(categoryManager.GetChart(), JsonRequestBehavior.AllowGet);
+            return Json(headingManager.GetChart(), JsonRequestBehavior.AllowGet);
         }
     }
 }

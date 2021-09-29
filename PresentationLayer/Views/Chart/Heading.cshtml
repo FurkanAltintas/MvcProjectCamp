@@ -41,13 +41,13 @@
             data.addRows(dataArray);
 
             var columnChartOptions = {
-                title: "Kategori - Başlık Grafiği",
+                title: "Heading - Writer Graphic",
                 width: 1000,
                 height: 800,
                 bar: { groupWidth: "20%" },
             };
 
-            var columnChart = new google.visualization.PieChart(document
+            var columnChart = new google.visualization.ColumnChart(document
                 .getElementById('columnchart_div'));
 
             columnChart.draw(data, columnChartOptions);

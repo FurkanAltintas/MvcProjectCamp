@@ -9,6 +9,6 @@ namespace EntityLayer.Dto
     public class HeadingChart
     {
         public string Name { get; set; }
-        public string Count { get; set; }
+        public int Count { get; set; }
     }
 }

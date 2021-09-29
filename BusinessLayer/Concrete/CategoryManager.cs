@@ -67,7 +67,7 @@ namespace BusinessLayer.Concrete
                 categoryChart.Add(new CategoryChart()
                 {
                     Name = item.Name,
-                    Count = item.Id
+                    Count = list.Count()
                 });
             }
 
