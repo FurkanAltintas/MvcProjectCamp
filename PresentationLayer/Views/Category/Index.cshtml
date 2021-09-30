@@ -7,6 +7,9 @@
     int i = 0;
 }
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -38,3 +41,32 @@
 </table>
 
 <a href="@Url.Action("Add","Category")" class="fcbtn btn btn-outline btn-success btn-1e">New Category</a>
+
+
+@if (ViewBag.Message != null)
+{
+    <script>
+        var strValue = "@((string)ViewBag.Message)";
+    if (strValue != null && strValue != '') {
+        swal({
+            title: "Good job!",
+            text: "Category Added!",
+            icon: "success",
+            button: "Ok!",
+        });
+    }
+    </script>
+}
+
+<!--
+
+    $('#new').click(function () {
+        swal({
+            title: "Good job!",
+            text: "Category Added!",
+            icon: "success",
+            button: "Ok!",
+        });
+    });
+
+-->

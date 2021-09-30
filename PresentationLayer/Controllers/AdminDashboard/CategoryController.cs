@@ -16,10 +16,11 @@ namespace PresentationLayer.Controllers.AdminDashboard
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         CategoryValidator categoryValidator = new CategoryValidator();
 
-        [Authorize(Roles ="Yönetici")]
+        [Authorize(Roles = "Yönetici")]
         // GET: Category
         public ActionResult Index()
         {
+            ViewBag.Message = TempData["Message"] as string;
             var list = categoryManager.GetList();
             return View(list);
         }
@@ -38,6 +39,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
             if (validationResult.IsValid)
             {
                 categoryManager.Add(p);
+                TempData["Message"] = "Added";
                 return RedirectToAction("Index");
             }
             else
@@ -48,7 +50,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
                 }
             }
 
-            return View();
+            return View(p);
         }
 
         public ActionResult Delete(int id)

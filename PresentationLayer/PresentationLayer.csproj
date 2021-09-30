@@ -2845,6 +2845,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminDashboard\AboutController.cs" />
+    <Compile Include="Controllers\AdminDashboard\AuthorizationController.cs" />
     <Compile Include="Controllers\AdminDashboard\CategoryController.cs" />
     <Compile Include="Controllers\AdminDashboard\ChartController.cs" />
     <Compile Include="Controllers\AdminDashboard\ContactController.cs" />
@@ -4062,6 +4063,7 @@
   <ItemGroup>
     <Folder Include="eliteadmin\plugins\bower_components\etc%281%29\" />
     <Folder Include="eliteadmin\plugins\bower_components\etc\" />
+    <Folder Include="Views\Authorization\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
