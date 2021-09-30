@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace PresentationLayer.Controllers.HomeWebSite
 {
+    [Route("{controller}/{action}")]
     [AllowAnonymous]
     public class HomeController : Controller
     {
@@ -19,28 +20,9 @@ namespace PresentationLayer.Controllers.HomeWebSite
         // GET: Home
         public PartialViewResult Index()
         {
+            ViewBag.ContactTrue = TempData["True"] as string;
+            ViewBag.ContactFalse = TempData["False"] as string;
             return PartialView();
-        }
-
-        [HttpPost]
-        public ActionResult Index(Contact p)
-        {
-            ValidationResult validationResult = contactValidator.Validate(p);
-
-            if (validationResult.IsValid)
-            {
-                p.CreDate = DateTime.Now;
-                contactManager.Add(p);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                foreach (var item in validationResult.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
-            }
-            return View(p);
         }
 
         public PartialViewResult Home()
@@ -76,6 +58,35 @@ namespace PresentationLayer.Controllers.HomeWebSite
         public PartialViewResult Comment()
         {
             return PartialView();
+        }
+
+
+        [HttpGet]
+        public PartialViewResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(Contact p)
+        {
+            ValidationResult validationResult = contactValidator.Validate(p);
+
+            if (validationResult.IsValid)
+            {
+                p.CreDate = DateTime.Now;
+                contactManager.Add(p);
+                TempData["True"] = "Successful";
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    TempData["False"] = "Failed";
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return RedirectToAction("Index");
         }
 
         public PartialViewResult Footer()

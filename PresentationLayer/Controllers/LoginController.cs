@@ -16,6 +16,7 @@ using System.Web.Security;
 
 namespace PresentationLayer.Controllers
 {
+    [Route("{controller}/{action}")]
     [AllowAnonymous]
     public class LoginController : Controller
     {

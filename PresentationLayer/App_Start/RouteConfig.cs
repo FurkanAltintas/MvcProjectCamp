@@ -21,7 +21,7 @@ namespace PresentationLayer
 
             routes.MapRoute(
               name: "Dashboard",
-              url: "Dashboard/{controller}/{action}/{id}",
+              url: "{Dashboard}/{controller}/{action}/{id}",
               defaults: new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional }
            );
 
