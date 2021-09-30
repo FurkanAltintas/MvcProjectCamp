@@ -24,18 +24,13 @@ namespace BusinessLayer.Concrete
 
         public void Add(Admin p)
         {
-            var crypto = new SimpleCrypto.PBKDF2();
-            var encrypedPassword = crypto.Compute(p.Password);
-
-            var admin = new Admin();
-
-            if (p.Id == 0)
-            {
-                admin.UserName = p.UserName;
-                admin.Password = encrypedPassword;
-                admin.Salt = crypto.Salt;
-                _adminDal.Insert(p);
-            }
+            string pass = p.Password;
+            string email = p.Email;
+            string key = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(pass)));
+            string mail = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(email)));
+            p.Password = key;
+            p.Email = mail;
+            _adminDal.Insert(p);
         }
 
         public void Delete(Admin p)
@@ -97,6 +92,18 @@ namespace BusinessLayer.Concrete
             string mail = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(email)));
             p.Password = key;
             p.Email = mail;
+            _adminDal.Update(p);
+        }
+
+        public void GetRoleById(int id, int role)
+        {
+            var value = _adminDal.Get(x => x.Id == id);
+            value.AdminRoleId = role;
+            _adminDal.Update(value);
+        }
+
+        public void IsStatus(Admin p)
+        {
             _adminDal.Update(p);
         }
     }

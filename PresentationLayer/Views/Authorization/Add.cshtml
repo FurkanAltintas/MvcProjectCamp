@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.Admin
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Add", "Authorization", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("USERNAME")
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Username" })
+    @Html.ValidationMessageFor(x => x.UserName)
+</div>
+
+<div class="form-group">
+    @Html.Label("EMAIL")
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email" })
+    @Html.ValidationMessageFor(x => x.Email)
+</div>
+
+<div class="form-group">
+    @Html.Label("PASSWORD")
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Password" })
+    @Html.ValidationMessageFor(x => x.Password)
+</div>
+
+    <div class="form-group">
+        @Html.Label("PROFILE")
+        @Html.TextBoxFor(x => x.Profile, new { @class = "form-control", @type = "file" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("TITLE")
+        @Html.TextAreaFor(x => x.Title, 5, 10, new { @class = "form-control", @placeholder = "Title" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("ADMIN ROLE")
+        @Html.DropDownListFor(x => x.AdminRoleId, (IEnumerable<SelectListItem>)ViewBag.Role, "Select Role", new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">New Admin</button>
+}

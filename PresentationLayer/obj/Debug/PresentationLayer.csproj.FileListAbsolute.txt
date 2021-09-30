@@ -105,7 +105,6 @@ C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\System.Web.
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\System.Web.Webpages.Deployment.dll
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\System.Web.Webpages.dll
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\System.Web.Webpages.Razor.dll
-C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\SimpleCrypto.dll
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\BusinessLayer.pdb
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\BusinessLayer.dll.config
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\PresentationLayer\bin\DataAccessLayer.pdb

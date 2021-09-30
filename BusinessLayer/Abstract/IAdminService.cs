@@ -12,11 +12,13 @@ namespace BusinessLayer.Abstract
         List<Admin> GetList();
         IOrderedEnumerable<Admin> GetOrderBy();
         Admin GetById(int id);
+        void GetRoleById(int id, int role);
         Admin GetByName(string username);
         Admin GetByEmail(string mail);
         bool GetLogin(Admin p);
         void Add(Admin p);
         void Update(Admin p);
         void Delete(Admin p);
+        void IsStatus(Admin p);
     }
 }

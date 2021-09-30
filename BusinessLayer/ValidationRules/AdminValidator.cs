@@ -18,7 +18,11 @@ namespace BusinessLayer.ValidationRules
             //                           + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
 
             //Ödev
-            RuleFor(x => x.Email).EmailAddress().WithMessage("Geçerli bir e-posta gerekli");
+
+            //RuleFor(x => x.Email).EmailAddress().WithMessage("Geçerli bir e-posta gerekli");
+            RuleFor(x => x.UserName).NotEmpty().WithMessage("Kullanıcı Adını adını boş bırakamazsınız");
+            RuleFor(x => x.Email).NotEmpty().WithMessage("Email adını boş bırakamazsınız");
+            RuleFor(x => x.Password).NotEmpty().WithMessage("Parolayı boş bırakamazsınız");
         }
     }
 }

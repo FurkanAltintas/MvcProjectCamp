@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace EntityLayer.Concrete
 {
     [Table("Admin")]
-    public class Admin
+    public class Admin : BaseEntity
     {
         [Key]
         public int Id { get; set; }
@@ -22,10 +22,9 @@ namespace EntityLayer.Concrete
         public string Profile { get; set; }
         [StringLength(100)]
         public string Title { get; set; }
-        [StringLength(75)]
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Salt { get; set; }    
+        public string Salt { get; set; }
         public ICollection<Ability> Ability { get; set; }
     }
 }
