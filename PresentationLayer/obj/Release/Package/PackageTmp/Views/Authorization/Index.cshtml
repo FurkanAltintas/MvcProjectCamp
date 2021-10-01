@@ -1,0 +1,97 @@
+﻿@model List<EntityLayer.Concrete.Admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int i = 0;
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>NO</th>
+            <th>USERNAME</th>
+            <th>ROLE</th>
+            <th>PROFILE</th>
+            <th>TITLE</th>
+            <th>STATUS</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td>@i</td>
+                <td>@item.UserName</td>
+                <td>@item.AdminRole.Name</td>
+                <td><img src="@item.Profile" alt="@item.UserName" style="height: 50px;" /></td>
+                <td>@item.Title</td>
+                <td>@Html.Raw(item.IsActive == true ? "<span class='label label-success'>Active</span>" : "<span class='label label-danger'>Passive</span>")</td>
+                <td></td>
+                <td class="text-nowrap">
+                    <a href="@Url.Action("ChangeRole","Authorization",new { id = item.Id })" data-toggle="tooltip" data-original-title="Role">
+                        <i class="fa fa-bolt text-success m-r-10"></i>
+                    </a>
+                    <a href="@Url.Action("Edit","Authorization",new {id = @item.Id})" data-toggle="tooltip" data-original-title="Edit">
+                        <i class="fa fa-pencil text-primary m-r-10"></i>
+                    </a>
+                    <a href="@Url.Action("Delete","Authorization",new {id = @item.Id})" data-toggle="tooltip" data-original-title="@(item.IsActive == true ? "Passive" : "Active")">
+                        <i class="@(item.IsActive == true ? "fa fa-close text-danger m-r-10" : "fa fa-check text-secondary m-r-10")"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Add","Authorization")" class="fcbtn btn btn-outline btn-success btn-1e">New Admin</a>
+
+
+<script>
+    var strValue = "@((string)ViewBag.Edit)";
+    if (strValue != null && strValue != '') {
+        swal({
+            title: "Updated!",
+            text: "Admin Updated!",
+            icon: "success",
+            button: "Ok!",
+        });
+    }
+
+    var strValue = "@((string)ViewBag.Added)";
+    if (strValue != null && strValue != '') {
+        swal({
+            title: "Added!",
+            text: "Admin Added!",
+            icon: "success",
+            button: "Ok!",
+        });
+    }
+
+    var strValue = "@((string)ViewBag.Role)";
+    if (strValue != null && strValue != '') {
+        swal({
+            title: "Role!",
+            text: "Admin Role Updated!",
+            icon: "success",
+            button: "Ok!",
+        });
+    }
+
+    var strValue = "@((string)ViewBag.Delete)";
+    if (strValue != null && strValue != '') {
+        swal({
+            title: "Delete!",
+            text: "Admin Delete!",
+            icon: "error",
+            button: "Ok!",
+        });
+    }
+</script>
+

@@ -1,0 +1,63 @@
+﻿@model EntityLayer.Concrete.Writer
+
+@{
+    ViewBag.Title = "Writer Add";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Add", "Writer", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Name")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Name" })
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.Label("SurName")
+        @Html.TextBoxFor(x => x.SurName, new { @class = "form-control", @placeholder = "SurName" })
+        @Html.ValidationMessageFor(x => x.SurName)
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Designation")
+        @Html.TextBoxFor(x => x.Designation,new {@class="form-control",@placeholder="Designation"})
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Profile")
+        @Html.TextBoxFor(x => x.Image, new {@class="form-control",@placeholder="Profile"})
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Mail")
+        @Html.TextBoxFor(x => x.Mail, new {@class="form-control",@placeholder="Mail",@type="email"})
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Phone")
+        @Html.TextBoxFor(x => x.Phone, new {@class="form-control",@placeholder="Phone",@type="tel"})
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Password")
+        @Html.PasswordFor(x => x.Password,new {@class="form-control",@placeholder="Password"})
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Address")
+        @Html.TextAreaFor(x => x.Address,5,10, new { @class="form-control",@placeholder="Address"})
+    </div>
+
+    <div class="form-group">
+        @Html.Label("About")
+        @Html.TextAreaFor(x => x.About,5,10, new {@class="form-control",@placeholder= "About" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">New Writer</button>
+    </div>
+}
+
+
+

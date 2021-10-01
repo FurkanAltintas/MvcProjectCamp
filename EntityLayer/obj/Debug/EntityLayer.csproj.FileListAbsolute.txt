@@ -6,7 +6,7 @@ C:\Users\furka\source\repos\MvcProjectCamp\EntityLayer\obj\Debug\EntityLayer.dll
 C:\Users\furka\source\repos\MvcProjectCamp\EntityLayer\obj\Debug\EntityLayer.pdb
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\EntityLayer\bin\Debug\EntityLayer.dll
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\EntityLayer\bin\Debug\EntityLayer.pdb
-C:\Users\furka\Documents\GitHub\MvcProjectCamp\EntityLayer\obj\Debug\EntityLayer.csproj.AssemblyReference.cache
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\EntityLayer\obj\Debug\EntityLayer.dll
 C:\Users\furka\Documents\GitHub\MvcProjectCamp\EntityLayer\obj\Debug\EntityLayer.pdb
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\EntityLayer\obj\Debug\EntityLayer.csproj.AssemblyReference.cache

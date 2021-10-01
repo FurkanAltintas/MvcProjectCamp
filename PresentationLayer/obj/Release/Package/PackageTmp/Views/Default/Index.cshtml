@@ -1,0 +1,45 @@
+﻿@model IOrderedEnumerable<EntityLayer.Concrete.Content>
+
+@{ 
+<style>
+    #center {
+        text-align: center;
+    }
+</style>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box">
+            <ul class="search-listing">
+                @if (Model.Count() != 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <li>
+                            <h3><a style="color: black;" href="#"><b>@item.Heading.Name</b></a></h3>
+                            <p>@item.Value</p>
+                            <p style="text-align: right;">@item.CreDate.Value.ToString("dd.MM.yyyy HH:mm") <a style="color: green;" href="#">@item.Writer.FullName</a></p>
+                        </li>
+                    }
+                }
+                else
+            {
+                <li>
+                    <p id="center">There is no heading content.</p>
+                </li>
+            }
+
+
+            </ul>
+            <ul class="pagination m-b-0">
+                <li class="disabled"> <a href="#"><i class="fa fa-angle-left"></i></a> </li>
+                <li class="active"> <a href="javascript:void(0)">1</a> </li>
+                <li> <a href="javascript:void(0)">2</a> </li>
+                <li> <a href="javascript:void(0)">3</a> </li>
+                <li> <a href="javascript:void(0)">4</a> </li>
+                <li> <a href="javascript:void(0)">5</a> </li>
+                <li> <a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a> </li>
+            </ul>
+        </div>
+    </div>
+</div>

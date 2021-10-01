@@ -13,6 +13,7 @@ namespace BusinessLayer.Abstract
         List<Heading> GetList();
         List<Heading> GetByWriterList(int id);
         List<Heading> GetByList(int id);
+        List<Events> GetCalendar();
         List<HeadingChart> GetChart();
         IOrderedEnumerable<Heading> GetOrderList();
         IOrderedEnumerable<Heading> GetSearch(string search);

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Content>
+
+@{
+    ViewBag.Title = "Content";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int i = 2;
+
+    string right = "";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box">
+            <ul class="timeline">
+                @foreach (var item in Model)
+                {
+                    if (i % 2 == 0)
+                    {
+                        right = "";
+                    }
+                    else
+                    {
+                        right = "timeline-inverted";
+                    }
+
+                    <li class="@right">
+                        <div class="timeline-badge success"><img class="img-responsive" alt="user" src="@item.Writer.Image"> </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">@item.Heading.Name</h4>
+                                <p><small class="text-muted"><i class="fa fa-clock-o"></i> @item.CreDate.Value.ToShortDateString()</small> </p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>@item.Value</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    i++;
+                }
+            </ul>
+        </div>
+    </div>
+</div>

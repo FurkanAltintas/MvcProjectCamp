@@ -64,7 +64,7 @@ namespace PresentationLayer.Controllers.HomeWebSite
         [HttpGet]
         public PartialViewResult Contact()
         {
-            return View();
+            return PartialView();
         }
 
         [HttpPost]

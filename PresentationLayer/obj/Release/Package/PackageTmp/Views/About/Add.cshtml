@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.About
+
+<div class="modal" id="aboutAdd">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">About</h4>
+            </div>
+            @using (Html.BeginForm("Add", "About", FormMethod.Post))
+            {
+                <div class="modal-body">
+                    <div class="form-group">
+                        @Html.Label("Details 1")
+                        @Html.TextBoxFor(x => x.Details, new { @class = "form-control", @placeholder = "Details 1" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label(" Details 2")
+                        @Html.TextBoxFor(x => x.Details2, new { @class = "form-control", @placeholder = "Details 2" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Image 1")
+                        @Html.TextBoxFor(x => x.Image, new { @class = "form-control", @placeholder = "Image 1" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Image 2")
+                        @Html.TextBoxFor(x => x.Image2, new { @class = "form-control", @placeholder = "Image 2" })
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">New About</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

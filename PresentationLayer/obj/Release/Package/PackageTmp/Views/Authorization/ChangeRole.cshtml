@@ -1,0 +1,18 @@
+﻿@model EntityLayer.Concrete.Admin
+
+@{
+    ViewBag.Title = "Change Role";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("ChangeRole", "Authorization", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("ADMIN ROLE")
+        @Html.DropDownListFor(x => x.AdminRoleId, (IEnumerable<SelectListItem>)ViewBag.Role, "Select Role", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AdminRoleId)
+    </div>
+
+    <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">Update Role</button>
+}
+

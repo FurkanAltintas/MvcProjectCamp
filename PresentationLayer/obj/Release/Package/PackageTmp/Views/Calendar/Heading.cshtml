@@ -1,0 +1,7 @@
+﻿@model List<EntityLayer.Concrete.Heading>
+
+@foreach (var item in Model)
+{
+    <div class="calendar-event" data-class="bg-primary">@item.Name <a href="javascript:void(0);" class="remove-calendar-event"><i class="ti-close"></i></a></div>
+
+}

@@ -1,0 +1,14 @@
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\bin\Release\DataAccessLayer.dll.config
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\bin\Release\EntityFramework.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\bin\Release\EntityLayer.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\bin\Release\EntityLayer.pdb
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\bin\Release\EntityFramework.xml
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\obj\Release\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CopyComplete
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\Users\furka\Documents\GitHub\MvcProjectCamp\DataAccessLayer\obj\Release\DataAccessLayer.pdb

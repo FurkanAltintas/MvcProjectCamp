@@ -1,0 +1,72 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Category>
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int i = 0;
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>NO</th>
+            <th>NAME</th>
+            <th>DESCRIPTION</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td>@i</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td class="text-nowrap">
+                    <a href="@Url.Action("Edit","Category",new {id = @item.Id})" data-toggle="tooltip" data-original-title="Edit">
+                        <i class="fa fa-pencil text-inverse m-r-10"></i>
+                    </a>
+                    <a href="@Url.Action("Delete","Category",new {id = @item.Id})" data-toggle="tooltip" data-original-title="Close">
+                        <i class="fa fa-close text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Add","Category")" class="fcbtn btn btn-outline btn-success btn-1e">New Category</a>
+
+
+@if (ViewBag.Message != null)
+{
+    <script>
+        var strValue = "@((string)ViewBag.Message)";
+    if (strValue != null && strValue != '') {
+        swal({
+            title: "Good job!",
+            text: "Category Added!",
+            icon: "success",
+            button: "Ok!",
+        });
+    }
+    </script>
+}
+
+<!--
+
+    $('#new').click(function () {
+        swal({
+            title: "Good job!",
+            text: "Category Added!",
+            icon: "success",
+            button: "Ok!",
+        });
+    });
+
+-->

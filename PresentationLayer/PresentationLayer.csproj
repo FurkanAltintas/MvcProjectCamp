@@ -2534,8 +2534,6 @@
     <Content Include="Images\Assets\landscape8.jpg" />
     <Content Include="Images\Assets\landscape9.jpg" />
     <Content Include="Images\Writer\akbabus.jpg" />
-    <Content Include="Images\Writer\Background\admin.jpg" />
-    <Content Include="Images\Writer\Background\admin2.jpg" />
     <Content Include="Images\Writer\behzat.jpg" />
     <Content Include="Images\Writer\harun.jpg" />
     <Content Include="Images\Writer\oralet.jpg" />
@@ -2555,12 +2553,24 @@
     <Content Include="Screenshot\Charts\CategoryChart.jpg" />
     <Content Include="Screenshot\Charts\ContentChart.jpg" />
     <Content Include="Screenshot\Charts\HeadingChart.jpg" />
+    <Content Include="Screenshot\Project\calendar 2.jpg" />
+    <Content Include="Screenshot\Project\calendar.jpg" />
     <Content Include="Screenshot\Project\Contact Detail.jpg" />
     <Content Include="Screenshot\Project\Contact Filter.jpg" />
     <Content Include="Screenshot\Project\Contact.jpg" />
+    <Content Include="Screenshot\Project\Dashboard Contact Detail.jpg" />
+    <Content Include="Screenshot\Project\Dashboard Contact Filter Read.jpg" />
+    <Content Include="Screenshot\Project\Dashboard Contact Filter.jpg" />
+    <Content Include="Screenshot\Project\Dashboard Contact.jpg" />
+    <Content Include="Screenshot\Project\Dashboard Message Compose.jpg" />
+    <Content Include="Screenshot\Project\Dashboard Message Detail.jpg" />
+    <Content Include="Screenshot\Project\Gallery File Upload.jpg" />
+    <Content Include="Screenshot\Project\Gallery.jpg" />
     <Content Include="Screenshot\Project\Message Compose.jpg" />
     <Content Include="Screenshot\Project\Message Mail Draft is empty.jpg" />
+    <Content Include="Screenshot\Project\Message Mail Inbox Unread.jpg" />
     <Content Include="Screenshot\Project\Message Mail Inbox.jpg" />
+    <Content Include="Screenshot\Project\Message Mail Sendbox.jpg" />
     <Content Include="Screenshot\Skill Card\Dashboard Ability Appearance.jpg" />
     <Content Include="Screenshot\Skill Card\Dashboard Ability.jpg" />
     <Content Include="Screenshot\Statistics\Statistics.jpg" />
@@ -2846,6 +2856,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminDashboard\AboutController.cs" />
     <Compile Include="Controllers\AdminDashboard\AuthorizationController.cs" />
+    <Compile Include="Controllers\AdminDashboard\CalendarController.cs" />
     <Compile Include="Controllers\AdminDashboard\CategoryController.cs" />
     <Compile Include="Controllers\AdminDashboard\ChartController.cs" />
     <Compile Include="Controllers\AdminDashboard\ContactController.cs" />
@@ -4057,6 +4068,9 @@
     <Content Include="Views\Authorization\Add.cshtml" />
     <Content Include="Views\Authorization\Edit.cshtml" />
     <Content Include="Views\Authorization\ChangeRole.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Calendar\Heading.cshtml" />
+    <Content Include="Views\Gallery\FileUpload.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4067,6 +4081,7 @@
   <ItemGroup>
     <Folder Include="eliteadmin\plugins\bower_components\etc%281%29\" />
     <Folder Include="eliteadmin\plugins\bower_components\etc\" />
+    <Folder Include="Images\Writer\Background\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

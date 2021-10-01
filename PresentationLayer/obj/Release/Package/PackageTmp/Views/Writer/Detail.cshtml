@@ -1,0 +1,254 @@
+﻿@model EntityLayer.Dto.WriterDetail
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- .row -->
+<div class="row">
+    <div class="col-md-4 col-xs-12">
+        <div class="white-box">
+            <div class="user-bg">
+                <img width="100%" alt="user" src="@Model.Writer.Image">
+            </div>
+
+            <div class="user-btm-box">
+                <!-- .row -->
+                <div class="row text-center m-t-10">
+                    <div class="col-md-6 b-r"><strong>Name</strong><p>@Model.Writer.Name @Model.Writer.SurName</p></div>
+                    <div class="col-md-6"><strong>Designation</strong><p>@Model.Writer.Designation</p></div>
+                </div>
+                <!-- /.row -->
+                <hr>
+                <!-- .row -->
+                <div class="row text-center m-t-10">
+                    <div class="col-md-6 b-r"><strong>Email ID</strong><p>@Model.Writer.Mail</p></div>
+                    <div class="col-md-6"><strong>Phone</strong><p>@Model.Writer.Phone</p></div>
+                </div>
+                <!-- /.row -->
+                <hr>
+                <!-- .row -->
+                <div class="row text-center m-t-10">
+                    <div class="col-md-12"><strong>Address</strong><p>@Model.Writer.Address</p></div>
+
+                </div>
+                <hr>
+                <!-- /.row -->
+                <div class="col-md-4 col-sm-4 text-center">
+                    <p class="text-purple"><i class="ti-facebook"></i></p>
+                    <h1>258</h1>
+                </div>
+                <div class="col-md-4 col-sm-4 text-center">
+                    <p class="text-blue"><i class="ti-twitter"></i></p>
+                    <h1>125</h1>
+                </div>
+                <div class="col-md-4 col-sm-4 text-center">
+                    <p class="text-danger"><i class="ti-dribbble"></i></p>
+                    <h1>556</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-xs-12">
+        <div class="white-box">
+            <!-- .tabs -->
+            <ul class="nav nav-tabs tabs customtab">
+                <li class="active tab"><a href="#home" data-toggle="tab"> <span class="visible-xs"><i class="fa fa-home"></i></span> <span class="hidden-xs">Activity</span> </a> </li>
+                <li class="tab"><a href="#profile" data-toggle="tab"> <span class="visible-xs"><i class="fa fa-user"></i></span> <span class="hidden-xs">Profile</span> </a> </li>
+                <li class="tab"><a href="#settings" data-toggle="tab" aria-expanded="false"> <span class="visible-xs"><i class="fa fa-cog"></i></span> <span class="hidden-xs">Edit Detail</span> </a> </li>
+            </ul>
+            <!-- /.tabs -->
+            <div class="tab-content">
+                <!-- .tabs 1 -->
+                <div class="tab-pane active" id="home">
+                    <div class="steamline">
+                        @if (Model.Content.Count() != 0)
+                        {
+                            foreach (var item in Model.Content)
+                            {
+                                <div class="sl-item">
+                                    <div class="sl-left"> <img src="@item.Writer.Image" alt="user" class="img-circle" /> </div>
+                                    <div class="sl-right">
+                                        <div class="m-l-40">
+                                            <a href="#" class="text-info">@item.Writer.Name @item.Writer.SurName</a> <span class="sl-date">@item.CreDate.Value.ToShortDateString()</span>
+                                            <p class="m-t-10">
+                                                <b>@item.Heading.Category.Name:</b> (@item.Heading.Name)
+                                                @if (item.Value.Length < 125)
+                                                {
+                                                    @item.Value
+                                                }
+                                                else
+                                                {
+                                                    @item.Value.Substring(0, 125)
+                                                }
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            }
+                        }
+                        else
+                        {
+                            <p>Hiç içerik bulunmamaktadır</p>
+                        }
+                    </div>
+                </div>
+                <!-- /.tabs1 -->
+                <!-- .tabs2 -->
+                <div class="tab-pane" id="profile">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6 b-r">
+                            <strong>Full Name</strong> <br>
+                            <p class="text-muted">@Model.Writer.Name @Model.Writer.SurName</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r">
+                            <strong>Mobile</strong> <br>
+                            <p class="text-muted">@Model.Writer.Phone</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r">
+                            <strong>Email</strong> <br>
+                            <p class="text-muted">@Model.Writer.Mail</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <strong>Location</strong> <br>
+                            <p class="text-muted">@Model.Writer.Address</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="m-t-30">@Model.Writer.About</p>
+                    <h4 class="font-bold m-t-30">Skill Set</h4>
+                    <hr>
+                    <h5>Wordpress <span class="pull-right">80%</span></h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%;"> <span class="sr-only">50% Complete</span> </div>
+                    </div>
+                    <h5>HTML 5 <span class="pull-right">90%</span></h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-custom" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%;"> <span class="sr-only">50% Complete</span> </div>
+                    </div>
+                    <h5>jQuery <span class="pull-right">50%</span></h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50% Complete</span> </div>
+                    </div>
+                    <h5>Photoshop <span class="pull-right">70%</span></h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%;"> <span class="sr-only">50% Complete</span> </div>
+                    </div>
+                </div>
+                <!-- /.tabs2 -->
+                <!-- .tabs3 -->
+                <div class="tab-pane" id="settings">
+                    @using (Html.BeginForm("Detail", "Writer", FormMethod.Post, new { @class = "form-horizontal form-material" }))
+                    {
+                        <div class="form-group">
+                            <label class="col-md-12">Full Name</label>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(x => x.Writer.Name, new { @class = "form-control form-control-line", @placeholder = "Name" })
+                                @Html.ValidationMessageFor(x => x.Writer.Name)
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(x => x.Writer.SurName, new { @class = "form-control form-control-line", @placeholder = "SurName" })
+                                @Html.ValidationMessageFor(x => x.Writer.SurName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="example-email" class="col-md-12">Email</label>
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Writer.Mail, new { @class = "form-control form-control-line", @placeholder = "Email", @type = "email" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Password</label>
+                            <div class="col-md-12">
+                                @Html.PasswordFor(x => x.Writer.Password, new { @class = "form-control form-control-line", @placeholder = "Password" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Profile</label>
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Writer.Image, new { @class = "form-control form-control-line", @placeholder = "Image" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Phone No</label>
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Writer.Phone, new { @class = "form-control form-control-line", @placeholder = "Phone" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Address</label>
+                            <div class="col-md-12">
+                                @Html.TextAreaFor(x => x.Writer.Address, 5, 10, new { @class = "form-control form-control-line", @placeholder = "Address" })
+                                @Html.ValidationMessageFor(x => x.Writer.Address)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">About</label>
+                            <div class="col-md-12">
+                                @Html.TextAreaFor(x => x.Writer.About, 5, 10, new { @class = "form-control form-control-line", @placeholder = "About" })
+                                @Html.ValidationMessageFor(x => x.Writer.About)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">Update Profile</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- /.tabs3 -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+<!-- .right-sidebar -->
+<div class="right-sidebar">
+    <div class="slimscrollright">
+        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+        <div class="r-panel-body">
+            <ul>
+                <li><b>Layout Options</b></li>
+                <li>
+                    <div class="checkbox checkbox-info">
+                        <input id="checkbox1" type="checkbox" class="fxhdr">
+                        <label for="checkbox1"> Fix Header </label>
+                    </div>
+                </li>
+
+            </ul>
+            <ul id="themecolors" class="m-t-20">
+                <li><b>With Light sidebar</b></li>
+                <li><a href="javascript:void(0)" theme="default" class="default-theme">1</a></li>
+                <li><a href="javascript:void(0)" theme="green" class="green-theme">2</a></li>
+                <li><a href="javascript:void(0)" theme="gray" class="yellow-theme">3</a></li>
+                <li><a href="javascript:void(0)" theme="blue" class="blue-theme">4</a></li>
+                <li><a href="javascript:void(0)" theme="purple" class="purple-theme">5</a></li>
+                <li><a href="javascript:void(0)" theme="megna" class="megna-theme working">6</a></li>
+                <li><b>With Dark sidebar</b></li>
+                <br />
+                <li><a href="javascript:void(0)" theme="default-dark" class="default-dark-theme">7</a></li>
+                <li><a href="javascript:void(0)" theme="green-dark" class="green-dark-theme">8</a></li>
+                <li><a href="javascript:void(0)" theme="gray-dark" class="yellow-dark-theme">9</a></li>
+
+                <li><a href="javascript:void(0)" theme="blue-dark" class="blue-dark-theme">10</a></li>
+                <li><a href="javascript:void(0)" theme="purple-dark" class="purple-dark-theme">11</a></li>
+                <li><a href="javascript:void(0)" theme="megna-dark" class="megna-dark-theme">12</a></li>
+            </ul>
+            <ul class="m-t-20 chatonline">
+                <li><b>Chat option</b></li>
+                <li><a href="javascript:void(0)"><img src="../plugins/images/users/varun.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a></li>
+                <li><a href="javascript:void(0)"><img src="../plugins/images/users/genu.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a></li>
+                <li><a href="javascript:void(0)"><img src="../plugins/images/users/ritesh.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a></li>
+                <li><a href="javascript:void(0)"><img src="../plugins/images/users/arijit.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a></li>
+                <li><a href="javascript:void(0)"><img src="../plugins/images/users/govinda.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a></li>
+                <li><a href="javascript:void(0)"><img src="../plugins/images/users/hritik.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a></li>
+                <li><a href="javascript:void(0)"><img src="../plugins/images/users/john.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a></li>
+                <li><a href="javascript:void(0)"><img src="../plugins/images/users/pawandeep.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /.right-sidebar -->

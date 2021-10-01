@@ -1,0 +1,39 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<EntityLayer.Concrete.Content>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="white-box">
+        <h3 class="box-title">Search Here</h3>
+        @using (Html.BeginForm("Index", "Content", FormMethod.Post, new { @class = "form-group" }))
+        {
+            <div class="input-group">
+                <input type="text" id="search" name="search" class="form-control" placeholder="">
+                <span class="input-group-btn"><button type="submit" class="btn waves-effect waves-light btn-info"><i class="fa fa-search"></i></button></span>
+            </div>
+        }
+        @if (ViewBag.Search != null)
+        {
+            <h2 class="m-t-40">Search Result For "@ViewBag.Search"</h2>
+            <small>About @Model.Count() result </small>
+        }
+        <hr>
+        <ul class="search-listing">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <h3><a href="@Url.Action("Headings","Default", new { id = item.HeadingId })">@item.Heading.Name</a></h3>
+                    <p>@item.Value</p>
+                </li>
+            }
+        </ul>
+        <ul class="pagination m-b-0">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+        </ul>
+    </div>
+</div>

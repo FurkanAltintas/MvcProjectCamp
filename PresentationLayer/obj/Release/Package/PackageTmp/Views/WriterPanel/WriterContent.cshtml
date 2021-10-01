@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Content>
+
+<div class="tab-pane active" id="home">
+    <div class="steamline">
+        @if (Model.Count() != 0)
+        {
+            foreach (var item in Model)
+            {
+                <div class="sl-item">
+                    <div class="sl-left"> <img src="@item.Writer.Image" alt="user" class="img-circle" /> </div>
+                    <div class="sl-right">
+                        <div class="m-l-40">
+                            <a href="#" class="text-info">@item.Writer.Name @item.Writer.SurName</a> <span class="sl-date">@item.CreDate.Value.ToShortDateString()</span>
+                            <p class="m-t-10">
+                                <b>@item.Heading.Category.Name:</b> (@item.Heading.Name)
+                                @if (item.Value.Length < 125)
+                                {
+                                    @item.Value
+                                }
+                                else
+                                {
+                                    @item.Value.Substring(0, 125)
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            }
+        }
+        else
+        {
+            <p>Hiç içerik bulunmamaktadır</p>
+        }
+    </div>
+</div>

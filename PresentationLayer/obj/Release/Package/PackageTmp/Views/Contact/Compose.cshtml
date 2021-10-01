@@ -1,0 +1,22 @@
+﻿<div class="col-lg-2 col-md-3  col-sm-12 col-xs-12 inbox-panel">
+    <div>
+        <a href="@Url.Action("Compose","Message")" class="btn btn-custom btn-block waves-effect waves-light">Create New Message</a>
+
+        <div class="list-group mail-list m-t-20">
+            <a href="@Url.Action("Index","Contact")" class="list-group-item">Contact <span class="label label-rouded label-success pull-right">@ViewBag.Contact</span></a>
+            <a href="/Message/Mail/Inbox/" class="list-group-item">Inbox <span class="label label-rouded label-primary pull-right">@ViewBag.Inbox</span></a>
+            <a href="/Message/Mail/Starred/" class="list-group-item ">Starred<span class="label label-rouded label-warning pull-right">@ViewBag.Starred</span></a>
+            <a href="/Message/Mail/Draft/" class="list-group-item">Draft <span class="label label-rouded label-red pull-right">@ViewBag.Draft</span></a>
+            <a href="/Message/Mail/Sendbox/" class="list-group-item">Sent Mail<span class="label label-rouded label-danger pull-right">@ViewBag.Sendbox</span></a>
+            <a href="/Message/Mail/Trash/" class="list-group-item">Trash <span class="label label-rouded label-default pull-right">@ViewBag.Trash</span></a>
+        </div>
+        <h3 class="panel-title m-t-40 m-b-0">Inbox</h3>
+        <hr class="m-t-5">
+        <div class="list-group b-0 mail-list">
+            <a href="#" class="list-group-item"><span class="fa fa-circle text-info m-r-10"></span>Inbox All : @ViewBag.InboxAll</a>
+            <a href="#" class="list-group-item"><span class="fa fa-circle text-warning m-r-10"></span>Inbox Read : @ViewBag.InboxRead</a>
+            <a href="#" class="list-group-item"><span class="fa fa-circle text-purple m-r-10"></span>Inbox Unread : @ViewBag.InboxUnread</a>
+        </div>
+
+    </div>
+</div>

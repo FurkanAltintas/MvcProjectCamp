@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.Ability
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Ability", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Name")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Name" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Degree")
+        @Html.TextBoxFor(x => x.Degree, new { @class = "form-control", @placeholder = "Degree", @type = "number" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">Update Ability</button>
+    </div>
+}
+

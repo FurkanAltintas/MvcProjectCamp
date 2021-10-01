@@ -1,0 +1,7 @@
+﻿@model IEnumerable<EntityLayer.Concrete.ImageCategory>
+
+<div class="gallery-header-center-right-links" id="filter-all">All</div>
+@foreach (var item in Model)
+{
+    <div class="gallery-header-center-right-links" id="filter-@item.Name.ToLower()">@item.Name</div>
+}

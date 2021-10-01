@@ -1,0 +1,55 @@
+﻿@model EntityLayer.Concrete.Contact
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+@Html.Action("Home")
+
+@Html.Action("About")
+
+@Html.Action("Service")
+
+@Html.Action("Experience")
+
+@Html.Action("Project")
+
+@Html.Action("Statistic")
+
+@Html.Action("Comment")
+
+@Html.Action("Contact")
+
+@Html.Action("Footer")
+
+<!-- Modal Popup -->
+
+@Html.Action("Login")
+
+@Html.Action("Register")
+
+<script>
+    var strValue = "@((string)ViewBag.ContactTrue)";
+    if (strValue != null && strValue != '') {
+        swal({
+            title: "Message Successful!",
+            text: "Message Created Successfully!",
+            icon: "success",
+            button: "Ok!",
+        });
+    }
+
+    var strValue = "@((string)ViewBag.ContactFalse)";
+    if (strValue != null && strValue != '') {
+        swal({
+            title: "Message Failed!",
+            text: "Message Could Not Be Sent!",
+            icon: "error",
+            button: "Ok!",
+        });
+    }
+</script>

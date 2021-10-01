@@ -1,0 +1,131 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Message>
+
+@{
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    string unread = "";
+    string date = DateTime.Now.ToShortDateString();
+    string year = DateTime.Now.Year.ToString();
+    int i = 0;
+}
+
+<div class="row">
+    <!-- Left sidebar -->
+    <div class="col-md-12">
+        <div class="white-box">
+            <!-- row -->
+            <div class="row">
+                @Html.Action("Compose", "Contact")
+                <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12 mail_listing">
+                    <div class="inbox-center">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="30">
+                                        <div class="checkbox m-t-0 m-b-0 ">
+                                            <input id="checkbox0" type="checkbox" class="checkbox-toggle" value="check all">
+                                            <label for="checkbox0"></label>
+                                        </div>
+                                    </th>
+                                    <th colspan="4">
+                                        @Html.Action("Filter", "Contact")
+                                    </th>
+                                    <th class="hidden-xs" width="100">
+                                        <div class="btn-group pull-right">
+                                            <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-left"></i></button>
+                                            <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-right"></i></button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    switch (item.IsRead)
+                                    {
+                                        case true:
+                                            unread = "";
+                                            break;
+                                        case false:
+                                            unread = "unread";
+                                            break;
+                                    }
+                                    <tr class="@unread">
+                                        <td>
+                                            <div class="checkbox m-t-0 m-b-0">
+                                                <input type="checkbox">
+                                                <label for="checkbox0"></label>
+                                            </div>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <a href="@Url.Action("IsStar", "Message", new {id = @item.Id})">
+                                                @if (item.IsStar == true)
+                                                {
+                                                    <i class="fa fa-star" style="color: #f4b400;"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fa fa-star-o"></i>
+                                                }
+                                            </a>
+                                        </td>
+                                        <td class="hidden-xs">@item.SenderMail</td>
+                                        <td class="max-texts">
+                                            <a href="@Url.Action("Detail","Message",new {id=item.Id})">
+                                                <span class="label label-success">@item.Subject</span>
+                                                @if (item.Messages.Length < 75)
+                                                {
+                                                    @item.Messages
+                                                }
+                                                else
+                                                {
+                                                    @item.Messages.Substring(0, 75)
+                                                }
+                                            </a>
+                                        </td>
+                                        <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
+                                        <td class="text-right">
+                                            @if (i == 0)
+                                            {
+                                                if (item.CreDate.Value.ToShortDateString() == date)
+                                                {
+                                                    @item.CreDate.Value.ToString("HH:mm")
+                                                    i++;
+                                                }
+
+                                                if (i != 1)
+                                                {
+                                                    if (item.CreDate.Value.Year.ToString() == year)
+                                                    {
+                                                        @item.CreDate.Value.ToString("dd MMM")
+                                                    }
+
+                                                    if (item.CreDate.Value.Year.ToString() != year)
+                                                    {
+                                                        @item.CreDate.Value.ToShortDateString()
+                                                    }
+                                                }
+                                                i = 0;
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-7 m-t-20"> Showing 1 - 15 of 200 </div>
+                        <div class="col-xs-5 m-t-20">
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-left"></i></button>
+                                <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+</div>

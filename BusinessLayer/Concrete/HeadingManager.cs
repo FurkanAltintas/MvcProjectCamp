@@ -49,6 +49,24 @@ namespace BusinessLayer.Concrete
             return _headingDal.List(x => x.WriterId == id && x.IsActive == true);
         }
 
+        public List<Events> GetCalendar()
+        {
+            List<Events> events = new List<Events>();
+
+            var list = _headingDal.List();
+
+            foreach (var item in list)
+            {
+                events.Add(new Events()
+                {
+                    title = item.Name,
+                    start = item.CreDate.Value.AddDays(1)
+                });
+            }
+
+            return events;
+        }
+
         public List<HeadingChart> GetChart()
         {
             List<HeadingChart> headingChart = new List<HeadingChart>();
