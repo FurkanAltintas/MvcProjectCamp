@@ -94,11 +94,6 @@ namespace PresentationLayer.Controllers
             return Convert.ToBoolean(captchaResponse.Success);
         }
 
-        public ActionResult LockScreen()
-        {
-            return View();
-        }
-
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();

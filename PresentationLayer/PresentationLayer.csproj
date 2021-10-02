@@ -4022,7 +4022,6 @@
     <Content Include="Views\GalleryCategory\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAccount.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Login\LockScreen.cshtml" />
     <Content Include="Views\Message\Count.cshtml" />
     <Content Include="Views\Ability\Index.cshtml" />
     <Content Include="Views\Ability\Person.cshtml" />

@@ -15,6 +15,7 @@ namespace BusinessLayer.Abstract
         void GetRoleById(int id, int role);
         Admin GetByName(string username);
         Admin GetByEmail(string mail);
+        bool GetByPassword(string mail, string password);
         bool GetLogin(Admin p);
         void Add(Admin p);
         void Update(Admin p);

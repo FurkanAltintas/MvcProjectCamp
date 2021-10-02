@@ -106,5 +106,15 @@ namespace BusinessLayer.Concrete
         {
             _adminDal.Update(p);
         }
+
+        public bool GetByPassword(string mail, string password)
+        {
+            var user = _adminDal.Get(x => x.Email == mail && x.Password == password && x.IsActive == true);
+
+            if (user != null)
+                return true;
+            else
+                return false;
+        }
     }
 }
