@@ -40,6 +40,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
         {
             var key = messageManager.GetById(id);
             key.IsTrash = true;
+            key.CreDate = DateTime.Now;
             messageManager.Update(key);
             return RedirectToAction("Index");
         }
@@ -48,13 +49,9 @@ namespace PresentationLayer.Controllers.AdminDashboard
         {
             var key = messageManager.GetById(id);
             key.IsRead = true;
+            key.CreDate = DateTime.Now;
             messageManager.Update(key);
             return RedirectToAction("Index");
-        }
-
-        public void GetId(int id)
-        {
-            var key = messageManager.GetById(id);
         }
     }
 }
