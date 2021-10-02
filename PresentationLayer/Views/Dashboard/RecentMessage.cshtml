@@ -1,0 +1,25 @@
+﻿@model IOrderedEnumerable<EntityLayer.Concrete.Message>
+
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+        <div class="white-box">
+            <h3 class="box-title">Recent Comments</h3>
+            <div class="comment-center">
+                @foreach (var item in Model)
+                {
+                    <div class="comment-body col-md-12">
+                        <div class="user-img"> <img src="~/eliteadmin/plugins/images/users/pawandeep.jpg" alt="user" class="img-circle"></div>
+                        <div class="mail-contnet">
+                            <h5>@item.SenderMail</h5>
+                            <span class="mail-desc">@item.Messages</span>
+                            <span class="label label-rounded label-info">@item.Subject</span>
+                            <a href="@Url.Action("Delete","Dashboard",new { id = item.Id })" class="action"><i class="ti-close text-danger" data-toggle="tooltip" data-original-title="Delete"></i></a>
+                            <a href="@Url.Action("Save","Dashboard",new { id = item.Id })" class="action"><i class="ti-check text-success" data-toggle="tooltip" data-original-title="Save"></i></a>
+                            <span class="time pull-right">@item.CreDate.Value.ToString("MMMM dd, yyyy")</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

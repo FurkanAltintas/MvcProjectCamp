@@ -4071,6 +4071,7 @@
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\Calendar\Heading.cshtml" />
     <Content Include="Views\Gallery\FileUpload.cshtml" />
+    <Content Include="Views\Dashboard\RecentMessage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
