@@ -111,6 +111,7 @@
     <Compile Include="Abstract\IImageCategoryService.cs" />
     <Compile Include="Abstract\IImageService.cs" />
     <Compile Include="Abstract\IMessageService.cs" />
+    <Compile Include="Abstract\IStatisticService.cs" />
     <Compile Include="Abstract\IWriterService.cs" />
     <Compile Include="Concrete\AbilityManager.cs" />
     <Compile Include="Concrete\AboutManager.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Concrete\ImageCategoryManager.cs" />
     <Compile Include="Concrete\ImageManager.cs" />
     <Compile Include="Concrete\MessageManager.cs" />
+    <Compile Include="Concrete\StatisticManager.cs" />
     <Compile Include="Concrete\WriterManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\AdminRoleProvider.cs" />
