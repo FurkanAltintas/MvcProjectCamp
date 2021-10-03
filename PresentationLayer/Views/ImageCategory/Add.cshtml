@@ -1,0 +1,15 @@
+﻿@model EntityLayer.Concrete.ImageCategory
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Add", "ImageCategory", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Name" })
+    </div>
+
+    <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">Add Image Category</button>
+}

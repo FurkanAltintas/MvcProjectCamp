@@ -25,16 +25,29 @@
                 <td>@item.Name</td>
                 <td>@Html.Raw(item.IsActive == true ? "<span class='label label-success'>Active</span>" : "<span class='label label-danger'>Passive</span>")</td>
                 <td class="text-nowrap">
+                    <a href="@Url.Action("Detail","Image",new {id = item.Id})" data-toggle="tooltip" data-original-title="Contents"><i class="fa fa-book text-primary m-r-10"></i></a>
+
                     <a href="@Url.Action("Edit","ImageCategory",new {id = @item.Id})" data-toggle="tooltip" data-original-title="Edit">
                         <i class="fa fa-pencil text-inverse m-r-10"></i>
                     </a>
-                    <a href="@Url.Action("Delete","ImageCategory",new {id = @item.Id})" data-toggle="tooltip" data-original-title="Delete">
-                        <i class="fa fa-close text-danger"></i>
-                    </a>
+
+                    @if (item.IsActive == true)
+                    {
+                        <a href="@Url.Action("Delete","ImageCategory",new {id = @item.Id})" data-toggle="tooltip" data-original-title="Passive">
+                            <i class="fa fa-check text-success"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Delete","ImageCategory",new {id = @item.Id})" data-toggle="tooltip" data-original-title="Active">
+                            <i class="fa fa-close text-danger"></i>
+                        </a>
+                    }
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<a href="@Url.Action("Add","ImageCategory")" class="fcbtn btn btn-outline btn-success btn-1e">New ImageCategory</a>
+<a href="@Url.Action("Add","ImageCategory")" class="fcbtn btn btn-outline btn-success btn-1e">New Image Category</a>

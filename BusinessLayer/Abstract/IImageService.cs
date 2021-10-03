@@ -12,6 +12,7 @@ namespace BusinessLayer.Abstract
         List<Image> GetList();
         IOrderedEnumerable<Image> GetListOrderBy();
         Image GetById(int id);
+        List<Image> GetCategoryId(int id);
         void Add(Image p);
         void Update(Image p);
         void Delete(Image p);

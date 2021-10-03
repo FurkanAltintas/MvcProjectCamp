@@ -47,5 +47,10 @@ namespace BusinessLayer.Concrete
         {
             _imageDal.Delete(p);
         }
+
+        public List<Image> GetCategoryId(int id)
+        {
+            return _imageDal.List(x => x.ImageCategoryId == id);
+        }
     }
 }

@@ -28,6 +28,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
         [HttpPost]
         public ActionResult Add(ImageCategory p)
         {
+            p.IsActive = true;
             imageCategoryManager.Add(p);
             return RedirectToAction("Index");
         }
@@ -36,13 +37,13 @@ namespace PresentationLayer.Controllers.AdminDashboard
         public ActionResult Edit(int id)
         {
             var key = imageCategoryManager.GetById(id);
-            Image();
             return View(key);
         }
 
         [HttpPost]
         public ActionResult Edit(ImageCategory p)
         {
+            p.IsActive = true;
             imageCategoryManager.Update(p);
             return RedirectToAction("Index");
         }
@@ -60,11 +61,6 @@ namespace PresentationLayer.Controllers.AdminDashboard
         {
             var list = imageCategoryManager.GetList();
             return PartialView(list);
-        }
-
-        public void Image()
-        {
-            ViewBag.Image = new SelectList(imageCategoryManager.GetList(), "Id", "Name");
         }
     }
 }

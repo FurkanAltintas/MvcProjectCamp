@@ -30,6 +30,12 @@ namespace PresentationLayer.Controllers.AdminDashboard
             return View(list);
         }
 
+        public ActionResult Detail(int id)
+        {
+            var key = imageManager.GetCategoryId(id);
+            return View(key);
+        }
+
         [HttpGet]
         public PartialViewResult FileUpload()
         {

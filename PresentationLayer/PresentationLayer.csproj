@@ -4074,6 +4074,8 @@
     <Content Include="Views\Image\Edit.cshtml" />
     <Content Include="Views\ImageCategory\Index.cshtml" />
     <Content Include="Views\ImageCategory\Edit.cshtml" />
+    <Content Include="Views\ImageCategory\Add.cshtml" />
+    <Content Include="Views\Image\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
