@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.Image
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.Label("NAME")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Name" })
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+    @Html.Label("PREVIEW")
+    <div class="form-group">
+        <img src="@Model.Url" />
+    </div>
+
+    <div class="form-group">
+        @Html.Label("IMAGE")
+        @Html.TextBoxFor(x => x.Url, new { @class = "form-control", @type = "file" })
+        @Html.ValidationMessageFor(x => x.Url)
+    </div>
+
+    <div class="form-group">
+        @Html.DropDownListFor(x => x.ImageCategoryId, (IEnumerable<SelectListItem>)ViewBag.Image, "Select Image Category", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.ImageCategoryId)
+    </div>
+
+    <button type="submit" class="fcbtn btn btn-outline btn-success btn-1e">Update Image</button>
+}

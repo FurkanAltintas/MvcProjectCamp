@@ -2862,8 +2862,8 @@
     <Compile Include="Controllers\AdminDashboard\ContactController.cs" />
     <Compile Include="Controllers\AdminDashboard\ContentController.cs" />
     <Compile Include="Controllers\AdminDashboard\DashboardController.cs" />
-    <Compile Include="Controllers\AdminDashboard\GalleryCategoryController.cs" />
-    <Compile Include="Controllers\AdminDashboard\GalleryController.cs" />
+    <Compile Include="Controllers\AdminDashboard\ImageCategoryController.cs" />
+    <Compile Include="Controllers\AdminDashboard\ImageController.cs" />
     <Compile Include="Controllers\AdminDashboard\HeadingController.cs" />
     <Compile Include="Controllers\AdminDashboard\MessageController.cs" />
     <Compile Include="Controllers\AdminDashboard\WriterController.cs" />
@@ -4018,8 +4018,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_LayoutError.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
-    <Content Include="Views\Gallery\Index.cshtml" />
-    <Content Include="Views\GalleryCategory\Index.cshtml" />
+    <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\ImageCategory\Category.cshtml" />
     <Content Include="Views\Shared\_LayoutAccount.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Message\Count.cshtml" />
@@ -4069,8 +4069,11 @@
     <Content Include="Views\Authorization\ChangeRole.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\Calendar\Heading.cshtml" />
-    <Content Include="Views\Gallery\FileUpload.cshtml" />
+    <Content Include="Views\Image\FileUpload.cshtml" />
     <Content Include="Views\Dashboard\RecentMessage.cshtml" />
+    <Content Include="Views\Image\Edit.cshtml" />
+    <Content Include="Views\ImageCategory\Index.cshtml" />
+    <Content Include="Views\ImageCategory\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

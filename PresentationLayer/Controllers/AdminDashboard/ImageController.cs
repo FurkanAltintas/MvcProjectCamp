@@ -12,7 +12,7 @@ using FluentValidation.Results;
 
 namespace PresentationLayer.Controllers.AdminDashboard
 {
-    public class GalleryController : Controller
+    public class ImageController : Controller
     {
         ImageManager imageManager = new ImageManager(new EfImageDal());
         ImageCategoryManager imageCategoryManager = new ImageCategoryManager(new EfImageCategoryDal());
@@ -64,7 +64,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
                     //p.Url = adres;
 
                     string fileName = Path.GetFileName(Request.Files[0].FileName);
-                    string path = "http://furkanaltintas-001-site1.htempurl.com/Images/Assets/" + fileName;
+                    string path = "/Images/Assets/" + fileName;
                     var fullpath = Server.MapPath("/Images/Assets/") + fileName;
                     Request.Files[0].SaveAs(Server.MapPath(path));
                     p.Url = path;
@@ -90,6 +90,58 @@ namespace PresentationLayer.Controllers.AdminDashboard
                 }
             }
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var key = imageManager.GetById(id);
+            Image();
+            return View(key);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Image p)
+        {
+            ValidationResult validationResult = imageValidator.Validate(p);
+
+            if (validationResult.IsValid)
+            {
+                string folderPath = Server.MapPath("~/Images/Assets/");
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                string expansion = Path.GetExtension(Request.Files[0].FileName);
+
+                if (expansion == ".jpg" || expansion == ".jpeg" || expansion == ".png" || expansion == ".gif")
+                {
+                    //string dosyaAdi = Path.GetFileName(file.FileName);
+                    //string adres = "/Images/Assets/" + dosyaAdi;
+                    //Request.Files[0].SaveAs(Server.MapPath(adres));
+                    //p.Url = adres;
+
+                    string fileName = Path.GetFileName(Request.Files[0].FileName);
+                    string path = "/Images/Assets/" + fileName;
+                    Request.Files[0].SaveAs(Server.MapPath(path));
+                    p.Url = path;
+                    p.ModDate = DateTime.Now;
+                    imageManager.Update(p);
+                    TempData["Update"] = "Update";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    Image();
+                    foreach (var item in validationResult.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
+                }
+            }
+            return View(p);
         }
 
         public ActionResult Delete(int id)

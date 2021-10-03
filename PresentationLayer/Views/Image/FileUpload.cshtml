@@ -9,7 +9,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h4 class="modal-title">Add Picture</h4>
             </div>
-            @using (Html.BeginForm("FileUpload", "Gallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("FileUpload", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <div class="modal-body">
 
