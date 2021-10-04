@@ -8,8 +8,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-@Html.Action("FileUpload", "Gallery")
-
 <div class="row">
     <div class="col-md-12">
         <div class="white-box">
@@ -18,7 +16,7 @@
                 <div id="gallery-header">
                     <div id="gallery-header-center">
                         <div id="gallery-header-center-left">
-                            @Html.Action("Index", "GalleryCategory")
+                            <a href="@Url.Action("FileUpload","Image")" class="btn btn-primary">Add</a>
                         </div>
                     </div>
                 </div>
@@ -27,8 +25,8 @@
                         @foreach (var item in Model)
                         {
                             <a href="@item.Url" data-toggle="lightbox" data-gallery="multiimages" data-title="@item.Name (@item.ImageCategory.Name)
-                               @Html.Raw("<a style='text-align:left;' href='/Dashboard/Gallery/Edit/"+@item.Id+"'>Edit</a>")
-                               @Html.Raw("<a href='/Dashboard/Gallery/Delete/"+@item.Id+"'>Delete</a>")">
+                               @Html.Raw("<a style='text-align:left;' href='/Dashboard/Image/Edit/"+@item.Id+"'>Edit</a>")
+                               @Html.Raw("<a href='/Dashboard/Image/Delete/"+@item.Id+"'>Delete</a>")">
                                 <img src="@item.Url" class="all @item.ImageCategory.Name.ToLower()" alt="@item.Name" style="height:200px; width:300px;" />
                             </a>
                         }
@@ -69,15 +67,25 @@
             icon: "error",
             button: "Ok!",
         });
+    }
 
     var strValue = "@((string)ViewBag.Delete)";
     if (strValue != null && strValue != '') {
         swal({
             title: "Delete",
-            text: "the picture was deleted",
+            text: "The picture was deleted",
             icon: "success",
             button: "Ok!",
         });
     }
+
+        var strValue = "@((string)ViewBag.Update)";
+    if (strValue != null && strValue != '') {
+        swal({
+            title: "Update",
+            text: "Image update successful",
+            icon: "success",
+            button: "Ok!",
+        });
     }
 </script>

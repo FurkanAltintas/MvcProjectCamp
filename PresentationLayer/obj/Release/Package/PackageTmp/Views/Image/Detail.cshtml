@@ -1,0 +1,39 @@
+﻿@model List<EntityLayer.Concrete.Image>
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box">
+            <div id="gallery">
+                <div id="gallery-content">
+                    <div id="gallery-content-center">
+                        @if (Model.Count() != 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <a href="@item.Url" data-toggle="lightbox" data-gallery="multiimages" data-title="@item.Name (@item.ImageCategory.Name)
+                               @Html.Raw("<a style='text-align:left;' href='/Dashboard/Image/Edit/"+@item.Id+"'>Edit</a>")
+                               @Html.Raw("<a href='/Dashboard/Image/Delete/"+@item.Id+"'>Delete</a>")">
+                                    <img src="@item.Url" class="all @item.ImageCategory.Name.ToLower()" alt="@item.Name" style="height:200px; width:300px;" />
+                                </a>
+                            }
+                        }
+                    </div>
+                    @if (Model.Count() == 0)
+                    {
+                        <div class="form-group m-b-0">
+                            <div class="text-center" style="margin: 175px auto">
+                                There are no images in the category
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

@@ -37,10 +37,10 @@ namespace PresentationLayer.Controllers.AdminDashboard
         }
 
         [HttpGet]
-        public PartialViewResult FileUpload()
+        public ActionResult FileUpload()
         {
             Image();
-            return PartialView();
+            return View();
         }
 
         [HttpPost]
@@ -70,14 +70,14 @@ namespace PresentationLayer.Controllers.AdminDashboard
                     //p.Url = adres;
 
                     string fileName = Path.GetFileName(Request.Files[0].FileName);
-                    string path = "/Images/Assets/" + fileName;
-                    var fullpath = Server.MapPath("/Images/Assets/") + fileName;
+                    string path = "/Images/Assets/" + fileName + expansion;
                     Request.Files[0].SaveAs(Server.MapPath(path));
                     p.Url = path;
                     p.IsActive = true;
                     p.CreDate = DateTime.Now;
                     TempData["Success"] = "Success";
                     imageManager.Add(p);
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -95,7 +95,7 @@ namespace PresentationLayer.Controllers.AdminDashboard
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-            return RedirectToAction("Index");
+            return View(p);
         }
 
         [HttpGet]
